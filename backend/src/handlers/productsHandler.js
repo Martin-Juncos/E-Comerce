@@ -23,8 +23,9 @@ const createProductHandler = async (req, res) => {
 }
 const updateProductHandler = async (req, res) => {
     const {id} = req.params
+    const {title, description, price, discountPercentage, rating, stock, brand, category, thumbnail, images } = req.body
     try {
-        const result = await updateProductController(id)
+        const result = await updateProductController(id, {title, description, price, discountPercentage, rating, stock, brand, category, thumbnail, images})
         res.status(200).json(result)
     } catch (error) {
         res.status(404).json({ error: error.message });
