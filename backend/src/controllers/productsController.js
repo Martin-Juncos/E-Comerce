@@ -1,10 +1,24 @@
-const axios = require("axios");
+
 const { Product } = require("../db/db.js");
 
 const getProductsController = async () => {
-  const products = await axios.get("https://dummyjson.com/products");
-  return products;
+  const data = await Product.findAll()
+  return data
 };
+
+const getProductByIdController = async (id) => {
+  const data = await Product.findByPk(id)
+  return data
+}
+const getProductTitleController = async (title) => {
+  const data = await getProductsController()
+  const dataTitle = data.filter((e) =>
+    e.title.toLowerCase().includes(title.toLowerCase())
+  );
+
+  return dataTitle
+}
+
 const createProductController = async (
   title,
   description,
@@ -61,14 +75,31 @@ const updateProductController = async (
   return product;
 };
 const deleteProductController = async (id) => {
-  const productDelete = await Product.findByPk(id);
-  await productDelete.destroy();
-  return productDelete;
+  const productDelete = await Product.destroy({
+    where: { id: id }
+  });
+  return "Producto Eliminado";
 };
+
+
+
+const getAllCategories = async () => {
+  const data = await getProductsController()
+  const categories = []
+  data.map((p)=>{
+   categories.push(p.category)
+  })
+  
+  return categories 
+}
 
 module.exports = {
   getProductsController,
   createProductController,
   updateProductController,
   deleteProductController,
+  getProductByIdController,
+  getProductTitleController,
+  getAllCategories
+  
 };
