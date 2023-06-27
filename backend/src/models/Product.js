@@ -49,6 +49,11 @@ module.exports = (database) => {
       thumbnail: {
         type: DataTypes.STRING,
       },
+      images: {
+        type: DataTypes.ARRAY(
+          DataTypes.STRING
+        )
+      }
     },
     { timestamps: false }
   );
