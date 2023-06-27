@@ -3,21 +3,25 @@ const {
   createProductController,
   updateProductController,
   deleteProductController,
+  getProductByIdController,
+  getProductTitleController,
+  getAllCategories
 } = require("../controllers/productsController");
 
 const getProductsHandler = async (req, res) => {
+  const { title } = req.query;
   try {
-    const result = await getProductsController();
+    const result = title ? await getProductTitleController(title) : await getProductsController();
     res.status(200).json(result);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
 };
 
-const getProductById = async (req, res) => {
+const getProductByIdHandler = async (req, res) => {
   const { id } = req.params;
   try {
-    const result = await getProductById();
+    const result = await getProductByIdController(id);
     res.status(200).json(result);
   } catch (error) {
     res.status(404).json({ error: error.message });
@@ -50,6 +54,7 @@ const createProductHandler = async (req, res) => {
       thumbnail,
       images
     );
+    console.log(result)
     res.status(201).json(result);
   } catch (error) {
     res.status(404).json({ error: error.message });
@@ -91,15 +96,27 @@ const deleteProductHandler = async (req, res) => {
   const { id } = req.params;
   try {
     const result = await deleteProductController(id);
+    console.log(result)
     res.status(200).json(result);
   } catch (error) {
     res.status(404).json({ error: error.message });
   }
 };
 
+const getAllCategoriesHandler = async (req,res) => {
+  try {
+    const result = await getAllCategories()
+    res.status(200).json(result)
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+}
+
 module.exports = {
   getProductsHandler,
   createProductHandler,
   updateProductHandler,
   deleteProductHandler,
+  getProductByIdHandler,
+  getAllCategoriesHandler
 };
