@@ -83,14 +83,14 @@ const deleteProductController = async (id) => {
 
 
 
-const getAllCategories = async () => {
+const getAllCategoriesController = async () => {
   const data = await getProductsController()
   const categories = []
-  data.map((p)=>{
-   categories.push(p.category)
+  data.map((p) => {
+    categories.push(p.category)
   })
-  
-  return categories 
+
+  return categories
 }
 
 module.exports = {
@@ -100,6 +100,6 @@ module.exports = {
   deleteProductController,
   getProductByIdController,
   getProductTitleController,
-  getAllCategories
-  
+  getAllCategoriesController
+
 };
