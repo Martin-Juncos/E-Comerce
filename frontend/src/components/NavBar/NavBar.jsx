@@ -18,6 +18,11 @@ function NavBar() {
         </a>
       </div>
       <div>
+        <a href="/form">
+          <h3>Crear Producto</h3>
+        </a>
+      </div>
+      <div>
         <SearcBar />
       </div>
     </div>
