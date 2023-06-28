@@ -103,6 +103,9 @@ const deleteProductHandler = async (req, res) => {
   }
 };
 
+
+//asdf
+
 const getAllCategoriesHandler = async (req,res) => {
   try {
     const result = await getAllCategoriesController()
