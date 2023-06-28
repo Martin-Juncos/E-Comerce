@@ -1,3 +1,6 @@
+const { getUserNameController, getAllUsersController, getUserByIdController, createUserController, deleteUserController, updateUserController } = require("../controllers/usersController");
+
+
 const getUserHandler = async (req, res) => {
     const { name } = req.query;
     try {
@@ -19,17 +22,35 @@ const getUserHandler = async (req, res) => {
   };
 
   const createUserHandler = async (req, res) => {
-    const { name, email, phone } = req.body;
+    const { name, gender , age , email , phone, adress, city, zipCode } = req.body;
     try {
-      const result = await createUserController(name, email, phone);
+      const result = await createUserController(name, gender , age , email , phone, adress, city, zipCode);
       res.status(201).json(result);
     } catch (error) {
       res.status(404).json({error: error.message});
     }
   };
 
-  const deleteUserHandler = async (req,res) => {}
-  const updateUserHandler = async (req,res) => {}
+  const deleteUserHandler = async (req,res) => {
+    const {id} = req.params
+    try {
+      const result = await deleteUserController(id)
+      res.status(200).json(result)
+    } catch (error) {
+      res.status(404).json({error: error.message});
+    }
+  }
+  const updateUserHandler = async (req,res) => {
+    const {id} = req.params;
+    const { name, gender , age , email , phone, adress, city, zipCode } = req.body
+    
+    try {
+      const result = (await updateUserController(id, { name, gender , age , email , phone, adress, city, zipCode}))
+      res.status(200).json(result)
+    } catch (error) {
+      res.status(404).json({error: error.message});
+    }
+  }
 
   module.exports = {
     createUserHandler,

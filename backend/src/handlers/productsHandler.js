@@ -5,7 +5,7 @@ const {
   deleteProductController,
   getProductByIdController,
   getProductTitleController,
-  getAllCategories
+  getAllCategoriesController
 } = require("../controllers/productsController");
 
 const getProductsHandler = async (req, res) => {
@@ -105,7 +105,7 @@ const deleteProductHandler = async (req, res) => {
 
 const getAllCategoriesHandler = async (req,res) => {
   try {
-    const result = await getAllCategories()
+    const result = await getAllCategoriesController()
     res.status(200).json(result)
   } catch (error) {
     res.status(404).json({ error: error.message });
