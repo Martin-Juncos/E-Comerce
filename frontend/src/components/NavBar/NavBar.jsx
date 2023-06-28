@@ -12,13 +12,13 @@ function NavBar() {
           <img src={smartech2} alt="img not found" width="300rem" />
         </a>
       </div>
-      <div>
-        <a href="/about">
+      <div >
+        <a className={style.a} href="/about">
           <h3>Nosotros</h3>
         </a>
       </div>
-      <div>
-        <a href="/form">
+      <div >
+        <a className={style.a} href="/form">
           <h3>Crear Producto</h3>
         </a>
       </div>
