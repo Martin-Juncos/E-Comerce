@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
         <Carrusel/>
-        <img src={banner} alt="banner" width='80%' />
+        <img src={banner} alt="banner" width='80%' style={{paddingTop: 20}}/>
         <CardsContainer/>
     </div>
   )
