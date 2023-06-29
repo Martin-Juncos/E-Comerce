@@ -4,8 +4,7 @@ const {
   updateProductController,
   deleteProductController,
   getProductByIdController,
-  getProductTitleController,
-  getAllCategoriesController
+  getProductTitleController
 } = require("../controllers/productsController");
 
 const getProductsHandler = async (req, res) => {
@@ -54,7 +53,6 @@ const createProductHandler = async (req, res) => {
       thumbnail,
       images
     );
-    console.log(result)
     res.status(201).json(result);
   } catch (error) {
     res.status(404).json({ error: error.message });
@@ -104,22 +102,10 @@ const deleteProductHandler = async (req, res) => {
 };
 
 
-//asdf
-
-const getAllCategoriesHandler = async (req,res) => {
-  try {
-    const result = await getAllCategoriesController()
-    res.status(200).json(result)
-  } catch (error) {
-    res.status(404).json({ error: error.message });
-  }
-}
-
 module.exports = {
   getProductsHandler,
   createProductHandler,
   updateProductHandler,
   deleteProductHandler,
-  getProductByIdHandler,
-  getAllCategoriesHandler
+  getProductByIdHandler
 };

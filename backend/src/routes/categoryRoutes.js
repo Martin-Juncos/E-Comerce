@@ -1,10 +1,12 @@
 const { Router } = require("express")
 
-const { getAllCategoriesHandler } = require("../handlers/productsHandler")
+
+const { createCategoryHandler, getAllCategoriesHandler } = require("../handlers/categoryHandler")
 
 const categoryRoutes = Router()
 
 categoryRoutes.get("/", getAllCategoriesHandler)
+categoryRoutes.post("/", createCategoryHandler)
 
 
 
