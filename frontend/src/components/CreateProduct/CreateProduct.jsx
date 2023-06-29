@@ -33,23 +33,22 @@ function CreateProduct() {
       [property]: value,
     });
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("", product);
+    axios.post("http://localhost:3001/products/", product);
     alert("Producto creado!");
-    setProducto({
-      title: "",
-      description: "",
-      price: "",
-      discountPercentage: "",
-      rating: "",
-      stock: "",
-      brand: "",
-      category: "",
-      thumbnail: "",
-      images: [],
-    });
+    // setProducto({
+    //   title: "",
+    //   description: "",
+    //   price: "",
+    //   discountPercentage: "",
+    //   rating: "",
+    //   stock: "",
+    //   brand: "",
+    //   category: "",
+    //   thumbnail: "",
+    //   images: [],
+    // });
   };
   return (
     <div>

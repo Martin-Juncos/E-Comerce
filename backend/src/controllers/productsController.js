@@ -31,7 +31,7 @@ const createProductController = async (
   thumbnail,
   images
 ) => {
-  return await Product.create({
+  const product = await Product.create({
     title,
     description,
     price,
@@ -43,7 +43,10 @@ const createProductController = async (
     thumbnail,
     images,
   });
+  return product
 };
+
+
 const updateProductController = async (
   id,
   {

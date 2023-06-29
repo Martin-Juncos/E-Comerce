@@ -28,7 +28,7 @@ module.exports = (database) => {
       },
       discountPercentage: {
         type: DataTypes.DECIMAL,
-        allowNull: false,
+        allowNull: true,
       },
       rating: {
         type: DataTypes.DECIMAL,
