@@ -6,6 +6,9 @@ const categoryRoutes = Router()
 
 categoryRoutes.get("/", getAllCategoriesHandler)
 
+
+
+
 module.exports = {
     categoryRoutes
 }
