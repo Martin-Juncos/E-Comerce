@@ -14,6 +14,17 @@ function CreateProduct() {
     thumbnail: "",
     images: [],
   });
+
+  const [inputValue, setInputValue] = useState("");
+  const handleAdd = (event) => {
+    event.preventDefault();
+    setProducto({
+      ...product,
+      images: [...product.images, inputValue],
+    });
+    setInputValue("");
+  };
+
   const handlerChange = (event) => {
     const value = event.target.value;
     const property = event.target.name;
@@ -22,12 +33,7 @@ function CreateProduct() {
       [property]: value,
     });
   };
-  const handleSelect = (e) => {
-    setProducto({
-      ...product,
-      images: [...product.images, e.target.value],
-    });
-  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post("", product);
@@ -144,9 +150,10 @@ function CreateProduct() {
             type="text"
             id="images"
             name="images"
-            value={product.images}
-            onChange={handleSelect}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
           />
+          <button onClick={handleAdd}>Add</button>
         </div>
         <div>
           <button>Crear Producto</button>
