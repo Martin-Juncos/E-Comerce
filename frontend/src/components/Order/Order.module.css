@@ -1,0 +1,6 @@
+.container {
+    display: flex;
+}
+.order{
+    padding: 1rem;
+}

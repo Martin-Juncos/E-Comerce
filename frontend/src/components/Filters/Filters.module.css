@@ -1,0 +1,6 @@
+.container {
+    display: flex;
+}
+.filter{
+    padding: 1rem;
+}

@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import About from './components/About/About';
 import NavBar from './components/NavBar/NavBar';
 import CreateProduct from './components/CreateProduct/CreateProduct';
+import Detail from './components/Detail/Detail';
 
 function App() {
   const location = useLocation()
@@ -16,6 +17,7 @@ function App() {
         <Route path='/home' element= {<Home/>} />
         <Route path='/about' element= {<About/>} />
         <Route path='/form' element= {<CreateProduct/>} />
+        <Route path='/detail/:id' element= {<Detail/>} />
       </Routes>
     </div>
   );
