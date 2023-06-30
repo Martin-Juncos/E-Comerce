@@ -5,6 +5,7 @@ const initialState = {
   allProductsCopy: [],
   product: [],
   allCategories: [],
+  loading: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -14,11 +15,12 @@ export default function reducer(state = initialState, action) {
         ...state,
         allProducts: action.payload,
         allProductsCopy: action.payload,
+        loading: true
       };
       case ALL_CATEGORIES:
       return {
         ...state,
-        allProducts: action.payload,
+        allCategories: action.payload,
       };
       case GET_PRODUCT_BY_ID:
       return {

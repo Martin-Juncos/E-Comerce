@@ -8,7 +8,7 @@ export const ALL_CATEGORIES = 'ALL_CATEGORIES'
 
 export const allProducts = () => {
   return async function (dispatch) {
-    const products = await axios.get("http://localhost:3001/products/");
+    const products = (await axios.get("http://localhost:3001/products/")).data;
     dispatch({ type: ALL_PRODUCTS, payload: products });
   };
 };
@@ -30,7 +30,7 @@ export const getProductByName = (name) => {
 
 export const allCategories = () => {
   return async function (dispatch) {
-    const categories = (await axios.get('http://localhost:3001/category/'))
+    const categories = (await axios.get('http://localhost:3001/category/')).data
     dispatch ({ type: ALL_CATEGORIES, payload: categories})
   }
 }
