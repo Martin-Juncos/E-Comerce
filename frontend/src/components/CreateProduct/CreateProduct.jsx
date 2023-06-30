@@ -70,6 +70,7 @@ function CreateProduct() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post("http://localhost:3001/products/", product);
+    axios.post("http://localhost:3001/category/", {name: product.category});
     alert("Producto creado!");
     setProducto({
       title: "",
