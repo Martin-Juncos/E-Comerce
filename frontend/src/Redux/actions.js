@@ -8,7 +8,7 @@ export const ALL_CATEGORIES = 'ALL_CATEGORIES'
 
 export const allProducts = () => {
   return async function (dispatch) {
-    const products = await axios.get("http://localhost:3001/products/").data;
+    const products = (await axios.get("http://localhost:3001/products/")).data;
     dispatch({ type: ALL_PRODUCTS, payload: products });
   };
 };

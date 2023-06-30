@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import style from "./CardContainer.module.css";
 import Card from "../Card/Card";
-//import {useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 import { data } from "./data";
 import Paginado from "../Paginado/Paginado";
 
 function CardsContainer() {
 
-  //const data = useSelector(state => state.allproducts)
+  const nada = useSelector(state => state.allProducts)
+  console.log(nada)
 
   const [currentPage, setCurrentPage] = useState(1);
   const productPerPage = 6;
