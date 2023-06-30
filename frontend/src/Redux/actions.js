@@ -30,7 +30,7 @@ export const getProductByName = (name) => {
 
 export const allCategories = () => {
   return async function (dispatch) {
-    const categories = (await axios.get('http://localhost:3001/category/'))
+    const categories = (await axios.get('http://localhost:3001/category/')).data
     dispatch ({ type: ALL_CATEGORIES, payload: categories})
   }
 }

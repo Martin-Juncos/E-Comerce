@@ -20,7 +20,7 @@ export default function reducer(state = initialState, action) {
       case ALL_CATEGORIES:
       return {
         ...state,
-        allProducts: action.payload,
+        allCategories: action.payload,
       };
       case GET_PRODUCT_BY_ID:
       return {
