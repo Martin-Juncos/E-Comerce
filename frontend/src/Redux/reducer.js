@@ -2,7 +2,8 @@ import { ALL_CATEGORIES, ALL_PRODUCTS, GET_PRODUCT_BY_ID, GET_PRODUCT_BY_NAME } 
 
 const initialState = {
   allProducts: [],
-  getProductById: [],
+  allProductsCopy: [],
+  product: [],
   allCategories: [],
 };
 
@@ -12,6 +13,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         allProducts: action.payload,
+        allProductsCopy: action.payload,
       };
       case ALL_CATEGORIES:
       return {
@@ -21,7 +23,7 @@ export default function reducer(state = initialState, action) {
       case GET_PRODUCT_BY_ID:
       return {
         ...state,
-        getProductById: action.payload,
+        product: action.payload,
       };
       case GET_PRODUCT_BY_NAME:
       return {

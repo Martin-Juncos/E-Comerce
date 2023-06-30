@@ -11,14 +11,7 @@ export const allProducts = () => {
     const products = await axios.get("http://localhost:3001/products/");
     dispatch({ type: ALL_PRODUCTS, payload: products });
   };
-}; 
-
-export const allCategories = () => {
-  return async function (dispatch) {
-    const categories = (await axios.get('http://localhost:3001/category/'))
-    dispatch ({ type: ALL_CATEGORIES, payload: categories})
-  }
-}
+};
 
 export const getProductById = (id) => {
   return async function (dispatch) {
@@ -34,5 +27,13 @@ export const getProductByName = (name) => {
   }
 }
 
+
+export const allCategories = () => {
+  return async function (dispatch) {
+    const categories = (await axios.get('http://localhost:3001/category/'))
+    dispatch ({ type: ALL_CATEGORIES, payload: categories})
+  }
+}
+//http://localhost:3001/category
 
 //* ecommerce --> db
