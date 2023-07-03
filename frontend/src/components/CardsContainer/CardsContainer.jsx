@@ -26,7 +26,7 @@ function CardsContainer() {
   const indexLastProduct = currentPage * productPerPage;
   const indexFirstProduct = indexLastProduct - productPerPage;
   const productsCurrent = data.slice(indexFirstProduct, indexLastProduct);
-  console.log(productsCurrent)
+  const productsFinal =  [...productsCurrent]
 
   return (
     <div >
@@ -38,7 +38,7 @@ function CardsContainer() {
         />
       </div>
       <div className={style.card}>
-        {productsCurrent.map((prod) => {
+        {productsFinal.map((prod) => {
           return (
             <Card
               key={prod.id}
