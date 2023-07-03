@@ -4,7 +4,13 @@ const { Category } = require("../db/db.js")
 const getAllCategoriesController = async () => {
   const response = await Category.findAll()
 
-  return response
+  response.map((e)=> {
+    CategoryfindOrCreate({
+      where: {name: e.name}
+    })
+  })
+
+  return await Category.findAll()
  }
   
 const createCategoryController = async (name) => {

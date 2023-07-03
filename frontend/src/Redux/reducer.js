@@ -32,7 +32,6 @@ export default function reducer(state = initialState, action) {
         ...state,
         allProducts: action.payload,
       };
-
     default:
       return {
         ...state,

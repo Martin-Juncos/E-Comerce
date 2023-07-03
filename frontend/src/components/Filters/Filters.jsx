@@ -13,8 +13,9 @@ function Filters() {
   }, [dispatch]);
 
   const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-    dispatch(allProducts(event.target.value));
+    const selectedCategory = event.target.value;
+    setSelectedCategory(selectedCategory);
+    dispatch(allProducts(selectedCategory));
   };
  // digo que cuando apriete una opcion, se deberian mostrar productos cuya categoria sea esa (es lo deseado xD)
 //Problema: no estoy pudiendo hacer que mi cards container se modifique :P
