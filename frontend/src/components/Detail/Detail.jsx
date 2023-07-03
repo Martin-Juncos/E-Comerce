@@ -18,8 +18,6 @@ function Detail() {
         <h6>{product.rating}</h6>
         <h6>{product.description}</h6>
         <h1>u$d {product.price}</h1>
-
-
     </div>
   )
 }

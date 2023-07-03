@@ -1,26 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Filters.module.css";
-import { allCategories } from "../../Redux/actions";
+import { allCategories, allProducts } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function Filters() {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.allCategories);
-  
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   useEffect(() => {
     dispatch(allCategories());
   }, [dispatch]);
 
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+    dispatch(allProducts(event.target.value));
+  };
+ // digo que cuando apriete una opcion, se deberian mostrar productos cuya categoria sea esa (es lo deseado xD)
+//Problema: no estoy pudiendo hacer que mi cards container se modifique :P
   return (
     <div className={style.container}>
       <div className={style.filter}>
         <label htmlFor="category">Categoria </label>
-        <select name="category" id="category">
+        <select name="category" id="category" onChange={handleCategoryChange}>
           <option value="all">All</option>
-          { categories.map((type,index)=> (
-            <option value={categories.name} key={index}>
-              {type.name}
+          { categories.map((categorie)=> (
+            <option value={categorie.name} key={categorie.id}>
+              {categorie.name}
             </option>
           ))}
         </select>
@@ -38,3 +44,4 @@ function Filters() {
 }
 
 export default Filters;
+
