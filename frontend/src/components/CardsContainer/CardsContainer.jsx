@@ -8,7 +8,7 @@ import Paginado from "../Paginado/Paginado";
 function CardsContainer() {
   var data = []
   const loadingState = useSelector((state) => state.loading);
-  const  products = useSelector(state => state.allProducts)
+  const  products = useSelector((state) => state.allProducts)
   if(loadingState) data = products
 
   const [currentPage, setCurrentPage] = useState(1);
