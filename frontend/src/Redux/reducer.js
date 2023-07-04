@@ -1,4 +1,13 @@
-import { ALL_CATEGORIES, CATEGORY_FILTER,ORDER_PRODUCT_BY_PRICE, ORDER_PRODUCT_BY_RATING,ALL_PRODUCTS, GET_PRODUCT_BY_ID, GET_PRODUCT_BY_NAME, ORDER_PRODUCT_BY_BRAND } from "./actions.js";
+import {
+  ALL_CATEGORIES,
+  CATEGORY_FILTER,
+  ORDER_PRODUCT_BY_PRICE,
+  ORDER_PRODUCT_BY_RATING,
+  ALL_PRODUCTS,
+  GET_PRODUCT_BY_ID,
+  GET_PRODUCT_BY_NAME,
+  ORDER_PRODUCT_BY_BRAND,
+} from "./actions.js";
 
 const initialState = {
   allProducts: [],
@@ -6,7 +15,7 @@ const initialState = {
   product: [],
   allCategories: [],
   allCategoriesCopy: [],
-  loading: false
+  loading: false,
 };
 
 export default function reducer(state = initialState, action) {
@@ -16,40 +25,40 @@ export default function reducer(state = initialState, action) {
         ...state,
         allProducts: action.payload,
         allProductsCopy: action.payload,
-        loading: true
+        loading: true,
       };
-      case ALL_CATEGORIES:
+    case ALL_CATEGORIES:
       return {
         ...state,
         allCategories: action.payload,
-        allCategoriesCopy: action.payload
+        allCategoriesCopy: action.payload,
       };
-      case CATEGORY_FILTER:
+    case CATEGORY_FILTER:
       return {
         ...state,
-        allProducts: action.payload,        
+        allProducts: action.payload,
       };
-      case GET_PRODUCT_BY_ID:
+    case GET_PRODUCT_BY_ID:
       return {
         ...state,
         product: action.payload,
       };
-      case GET_PRODUCT_BY_NAME:
+    case GET_PRODUCT_BY_NAME:
       return {
         ...state,
         allProducts: action.payload,
       };
-      case ORDER_PRODUCT_BY_PRICE:
+    case ORDER_PRODUCT_BY_PRICE:
       return {
         ...state,
         allProducts: action.payload,
       };
-      case ORDER_PRODUCT_BY_RATING:
+    case ORDER_PRODUCT_BY_RATING:
       return {
         ...state,
         allProducts: action.payload,
       };
-      case ORDER_PRODUCT_BY_BRAND:
+    case ORDER_PRODUCT_BY_BRAND:
       return {
         ...state,
         allProducts: action.payload,

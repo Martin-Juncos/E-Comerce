@@ -4,13 +4,12 @@ import { filterCategory, orderProductByBrand } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function Filters() {
+
   const dispatch = useDispatch();
+  
   const categories = useSelector((state) => state.allCategories);
 
   const products = useSelector((state) => state.allProductsCopy)
-  // const [selectedCategory, setSelectedCategory] = useState("all");
-
-
 
   const handleCategoryChange = (catName) => {
     dispatch(filterCategory(catName));
@@ -19,8 +18,7 @@ function Filters() {
   const handleBrandChange = (selectedBrand) => {
     dispatch(orderProductByBrand(selectedBrand))
   }
- // digo que cuando apriete una opcion, se deberian mostrar productos cuya categoria sea esa (es lo deseado xD)
-//Problema: no estoy pudiendo hacer que mi cards container se modifique :P
+
   return (
     <div className={style.container}>
       <div className={style.filter}>
