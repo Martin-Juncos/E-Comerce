@@ -22,10 +22,13 @@ export const getProductById = (id) => {
 
 export const getProductByName = (name) => {
   return async function (dispatch) {
-    const product = (await axios.get(`http://localhost:3001/products/?name=${name}`)).data
+    const product = (await axios.get(`http://localhost:3001/products/name/name=${name}`)).data
     dispatch({ type: GET_PRODUCT_BY_NAME, payload: product})
   }
 }
+
+
+
 
 
 export const allCategories = () => {
