@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
 import style from "./Filters.module.css";
-import { allCategories, allProducts } from "../../Redux/actions";
+import { allCategories, allProducts, orderProductByBrand } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function Filters() {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.allCategories);
+  const products = useSelector((state) => state.allProducts)
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  useEffect(() => {
-    dispatch(allCategories());
-  }, [dispatch]);
+
 
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
     setSelectedCategory(selectedCategory);
     dispatch(allProducts(selectedCategory));
   };
+
+  const handleBrandChange = (selectedBrand) => {
+    dispatch(orderProductByBrand(selectedBrand))
+  }
  // digo que cuando apriete una opcion, se deberian mostrar productos cuya categoria sea esa (es lo deseado xD)
 //Problema: no estoy pudiendo hacer que mi cards container se modifique :P
   return (
@@ -34,10 +37,11 @@ function Filters() {
       </div>
       <div className={style.filter}>
         <label htmlFor="brand">Marca </label>
-        <select name="brand" id="brand">
-          <option value="all">All</option>
-          <option value="Apple">Apple</option>
-          <option value="Mega">Mega</option>
+        <select name="brand" id="brand" onChange={(e)=> handleBrandChange(e.target.value)}>
+          <option value="All">All</option>
+          { products.map((e, index) => (
+            <option value={e.brand}  key={index}>{e.brand}</option>
+          )) }
         </select>
       </div>
     </div>

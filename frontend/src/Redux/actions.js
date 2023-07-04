@@ -1,10 +1,12 @@
 import axios from "axios";
 
 export const ALL_PRODUCTS = "ALL_PRODUCTS";
-export const GET_PRODUCT_BY_ID = 'GET_PRODUCT_BY_ID';
-export const GET_PRODUCT_BY_NAME = 'GET_PRODUCT_BY_NAME';
-export const ALL_CATEGORIES = 'ALL_CATEGORIES'
-
+export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
+export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
+export const ALL_CATEGORIES = "ALL_CATEGORIES";
+export const ORDER_PRODUCT_BY_PRICE = "ORDER_PRODUCT_BY_PRICE";
+export const ORDER_PRODUCT_BY_RATING = "ORDER_PRODUCT_BY_RATING";
+export const ORDER_PRODUCT_BY_BRAND = "ORDER_PRODUCT_BY_BRAND";
 
 export const allProducts = () => {
   return async function (dispatch) {
@@ -15,28 +17,103 @@ export const allProducts = () => {
 
 export const getProductById = (id) => {
   return async function (dispatch) {
-    const product = (await axios.get(`http://localhost:3001/products/${id}`)).data
-    dispatch({  type: GET_PRODUCT_BY_ID, payload: product})
-  }
-}
+    const product = (await axios.get(`http://localhost:3001/products/${id}`))
+      .data;
+    dispatch({ type: GET_PRODUCT_BY_ID, payload: product });
+  };
+};
 
-export const getProductByName = (name) => {
+export const getProductByName = (title) => {
   return async function (dispatch) {
-    const product = (await axios.get(`http://localhost:3001/products/name/name=${name}`)).data
-    dispatch({ type: GET_PRODUCT_BY_NAME, payload: product})
-  }
-}
-
-
-
-
+    const product = (
+      await axios.get(`http://localhost:3001/products/?title=${title}`)
+    ).data;
+    dispatch({ type: GET_PRODUCT_BY_NAME, payload: product });
+  };
+};
 
 export const allCategories = () => {
   return async function (dispatch) {
-    const categories = (await axios.get('http://localhost:3001/category')).data
-    dispatch ({ type: ALL_CATEGORIES, payload: categories})
-  }
-}
+    const categories = (await axios.get("http://localhost:3001/category")).data;
+    dispatch({ type: ALL_CATEGORIES, payload: categories });
+  };
+};
 //http://localhost:3001/category
 
 //* ecommerce --> db
+
+export const orderProductByPrice = (orderPrice) => {
+  return async function (dispatch, getState) {
+    const allProducts = [...getState().allProducts];
+    let productsPrice;
+    if (orderPrice === "menor") {
+      productsPrice = allProducts.sort((a, b) => {
+        if (a.price > b.price) {
+          return 1;
+        }
+        if (a.price < b.price) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+    } else if (orderPrice === "mayor") {
+      productsPrice = allProducts.sort((a, b) => {
+        if (a.price < b.price) {
+          return 1;
+        }
+        if (a.price > b.price) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+    }
+    dispatch({ type: ORDER_PRODUCT_BY_PRICE, payload: productsPrice });
+  };
+};
+
+export const orderProductByRating = (orderRating) => {
+  return async function (dispatch, getState) {
+    const allProducts = [...getState().allProducts];
+    let productsRating;
+    if (orderRating === "menor") {
+      productsRating = allProducts.sort((a, b) => {
+        if (a.rating > b.rating) {
+          return 1;
+        }
+        if (a.rating < b.rating) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+    } else if (orderRating === "mayor") {
+      productsRating = allProducts.sort((a, b) => {
+        if (a.rating < b.rating) {
+          return 1;
+        }
+        if (a.rating > b.rating) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      });
+    }
+    dispatch({ type: ORDER_PRODUCT_BY_RATING, payload: productsRating });
+  };
+};
+
+export const orderProductByBrand = (selectedBrand) =>{
+  return async function (dispatch, getState) {
+    const allProducts = ([...getState().allProducts])
+    let productBrand;
+    if (selectedBrand === "All") {
+      productBrand = allProducts;
+    } else {
+      productBrand = allProducts.filter((p) => 
+      p.brand.includes(selectedBrand))
+    }
+    dispatch({ type: ORDER_PRODUCT_BY_BRAND, payload: productBrand})
+  }
+}

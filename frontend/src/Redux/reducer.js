@@ -1,4 +1,4 @@
-import { ALL_CATEGORIES, ALL_PRODUCTS, GET_PRODUCT_BY_ID, GET_PRODUCT_BY_NAME } from "./actions.js";
+import { ALL_CATEGORIES,ORDER_PRODUCT_BY_PRICE, ORDER_PRODUCT_BY_RATING,ALL_PRODUCTS, GET_PRODUCT_BY_ID, GET_PRODUCT_BY_NAME, ORDER_PRODUCT_BY_BRAND } from "./actions.js";
 
 const initialState = {
   allProducts: [],
@@ -28,6 +28,21 @@ export default function reducer(state = initialState, action) {
         product: action.payload,
       };
       case GET_PRODUCT_BY_NAME:
+      return {
+        ...state,
+        allProducts: action.payload,
+      };
+      case ORDER_PRODUCT_BY_PRICE:
+      return {
+        ...state,
+        allProducts: action.payload,
+      };
+      case ORDER_PRODUCT_BY_RATING:
+      return {
+        ...state,
+        allProducts: action.payload,
+      };
+      case ORDER_PRODUCT_BY_BRAND:
       return {
         ...state,
         allProducts: action.payload,

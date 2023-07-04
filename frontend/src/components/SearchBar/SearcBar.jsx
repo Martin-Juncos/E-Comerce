@@ -25,7 +25,11 @@ function SearcBar() {
     setFlag(true)
   }
 
-  const filteredProducts = allProduct
+  const filteredProducts = allProduct.filter((p) =>
+  p.title.toLowerCase().includes(input.toLowerCase())
+)
+  
+
   
 
   if (!filteredProducts.length) {
