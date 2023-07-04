@@ -4,6 +4,7 @@ export const ALL_PRODUCTS = "ALL_PRODUCTS";
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const ALL_CATEGORIES = "ALL_CATEGORIES";
+export const CATEGORY_FILTER = 'CATEGORY_FILTER'
 export const ORDER_PRODUCT_BY_PRICE = "ORDER_PRODUCT_BY_PRICE";
 export const ORDER_PRODUCT_BY_RATING = "ORDER_PRODUCT_BY_RATING";
 export const ORDER_PRODUCT_BY_BRAND = "ORDER_PRODUCT_BY_BRAND";
@@ -38,6 +39,21 @@ export const allCategories = () => {
     dispatch({ type: ALL_CATEGORIES, payload: categories });
   };
 };
+
+export const filterCategory = (catName) => {
+  return async function (dispatch, getState) {
+    const allProducts = [...getState().allProductsCopy]
+    let productsFilterByCategory;
+    if (catName === "all") {
+      productsFilterByCategory = allProducts
+    } else {
+      productsFilterByCategory = allProducts.filter((prod) => 
+      prod.category === catName)      
+    }
+    //cat.name.some((c) => c === catName))
+    dispatch({type: CATEGORY_FILTER, payload: productsFilterByCategory})
+  }
+}
 //http://localhost:3001/category
 
 //* ecommerce --> db
@@ -106,7 +122,7 @@ export const orderProductByRating = (orderRating) => {
 
 export const orderProductByBrand = (selectedBrand) =>{
   return async function (dispatch, getState) {
-    const allProducts = ([...getState().allProducts])
+    const allProducts = ([...getState().allProductsCopy])
     let productBrand;
     if (selectedBrand === "All") {
       productBrand = allProducts;

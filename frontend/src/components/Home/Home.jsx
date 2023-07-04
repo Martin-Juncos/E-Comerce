@@ -9,7 +9,8 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(allProducts(), allCategories());
+    dispatch(allProducts());
+    dispatch(allCategories())
   }, [dispatch]);
 
 
