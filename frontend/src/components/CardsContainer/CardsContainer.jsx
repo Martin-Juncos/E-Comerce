@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import style from "./CardContainer.module.css";
 import Card from "../Card/Card";
 import {useSelector} from 'react-redux'
@@ -13,32 +13,25 @@ function CardsContainer() {
   const  products = useSelector((state) => state.allProducts)
   if(loadingState) data = products
 
-  const [filteredProducts, setFilteredProducts] = useState([]);
-
-  useEffect(() => {
-    setFilteredProducts(products);
-  }, [products]);
-
-
 
   const [currentPage, setCurrentPage] = useState(1);
   const productPerPage = 6;
   const indexLastProduct = currentPage * productPerPage;
   const indexFirstProduct = indexLastProduct - productPerPage;
   const productsCurrent = data.slice(indexFirstProduct, indexLastProduct);
-  console.log(productsCurrent)
+  const productsFinal = [...productsCurrent]
 
   return (
     <div >
       <div>
         <Paginado
           productPerPage={productPerPage}
-          productsAll={data.length}
+          productsAll={products.length}
           setCurrentPage={setCurrentPage}
         />
       </div>
       <div className={style.card}>
-        {productsCurrent.map((prod) => {
+        {productsFinal.map((prod) => {
           return (
             <Card
               key={prod.id}
