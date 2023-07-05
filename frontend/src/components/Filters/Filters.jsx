@@ -10,6 +10,10 @@ function Filters() {
   const categories = useSelector((state) => state.allCategories);
 
   const products = useSelector((state) => state.allProductsCopy)
+  // Paso 1: Eliminar duplicados usando un Set
+  const marcasUnicas = new Set(products.map(producto => producto.brand));
+  // Paso 2: Convertir el Set nuevamente a un array para obtener el resultado deseado
+  const marcasSinRepetir = Array.from(marcasUnicas);
 
   const handleCategoryChange = (catName) => {
     dispatch(filterCategory(catName));
@@ -36,8 +40,8 @@ function Filters() {
         <label htmlFor="brand">Marca </label>
         <select name="brand" id="brand" onChange={(e)=> handleBrandChange(e.target.value)}>
           <option value="All">All</option>
-          { products.map((e, index) => (
-            <option value={e.brand}  key={index}>{e.brand}</option>
+          { marcasSinRepetir.map((brand, index) => (
+            <option value={brand}  key={index}>{brand}</option>
           )) }
         </select>
       </div>
