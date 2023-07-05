@@ -3,7 +3,7 @@ import styles from './Login.module.css'
 import { useAuth0 } from "@auth0/auth0-react";
 
 
-export default function Login() {
+export const Login = () => {
 
     const { loginWithRedirect } = useAuth0();
 
