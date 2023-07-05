@@ -23,11 +23,11 @@ module.exports = (database) => {
         allowNull: false,
       },
       price: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL,
         allowNull: false,
       },
       discountPercentage: {
-        type: DataTypes.DECIMAL,
+        type: DataTypes.INTEGER,
         allowNull: true,
       },
       rating: {

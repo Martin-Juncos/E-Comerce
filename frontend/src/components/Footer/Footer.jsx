@@ -22,7 +22,7 @@ function Footer() {
         <div className={classes.lower}>
           <section className={classes.about}>
             <h2>About</h2>
-            <p class="text-justify">
+            <p className="text-justify">
               Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to
               help the upcoming programmers with the code. Scanfcode focuses on
               providing the most efficient code or snippets as the code wants to

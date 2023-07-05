@@ -26,7 +26,7 @@ function CardsContainer() {
       <div>
         <Paginado
           productPerPage={productPerPage}
-          productsAll={productsFinal.length}
+          productsAll={products.length}
           setCurrentPage={setCurrentPage}
         />
       </div>
@@ -40,6 +40,7 @@ function CardsContainer() {
               images={prod.images[0]}
               description={prod.description}
               price={prod.price}
+              rating={prod.rating}
             />
           );
         })}
