@@ -7,6 +7,7 @@ import NavBar from './components/NavBar/NavBar';
 import CreateProduct from './components/CreateProduct/CreateProduct';
 import Detail from './components/Detail/Detail';
 
+
 function App() {
   const location = useLocation()
   return (
