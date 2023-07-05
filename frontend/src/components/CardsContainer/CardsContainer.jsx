@@ -26,7 +26,7 @@ function CardsContainer() {
       <div>
         <Paginado
           productPerPage={productPerPage}
-          productsAll={productsFinal.length}
+          productsAll={products.length}
           setCurrentPage={setCurrentPage}
         />
       </div>
