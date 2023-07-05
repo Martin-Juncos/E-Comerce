@@ -4,9 +4,9 @@ const userModel = require("../models/User.js")
 const categoryModel = require("../models/Category.js")
 
 
-const DB_USER = "postgres"
-const DB_PASSWORD = "postgres"
-const DB_HOST = "localhost:5432"
+const DB_USER = "dev"
+const DB_PASSWORD = "ecommerce_dev"
+const DB_HOST = "164.92.70.131"
 
 const database = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/ecommerce`, {logging: false})
 
