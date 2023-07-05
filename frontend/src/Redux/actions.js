@@ -44,7 +44,7 @@ export const filterCategory = (catName) => {
   return async function (dispatch, getState) {
     const allProducts = [...getState().allProductsCopy];
     let productsFilterByCategory;
-    if (catName === "all") {
+    if (catName === "all") {  
       productsFilterByCategory = allProducts;
     } else {
       productsFilterByCategory = allProducts.filter(
