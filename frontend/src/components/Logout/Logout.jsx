@@ -1,12 +1,17 @@
 import { useAuth0 } from "@auth0/auth0-react"
+import styles from './Logout.module.css'
 
 
+export const Logout = () => {
+  const { logout } = useAuth0();
 
-export default function Logout() {
+  const handleLogout = () => {
+    logout({ returnTo: window.location.reload });
+  };
 
-    const { logout } = useAuth0()
+    
     return (
-        <button className={styles.boton} onClick={() => logout({ returnTo: window.location.origin })}>
+        <button className={styles.boton} onClick={handleLogout}>
         Logout
       </button>
     )

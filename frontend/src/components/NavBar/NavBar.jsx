@@ -6,7 +6,16 @@ import SearcBar from "../SearchBar/SearcBar";
 import Filters from "../Filters/Filters";
 import Order from "../Order/Order";
 
+ import {Login} from '../Login/Login'
+import {Logout} from '../Logout/Logout'
+ import {Profile} from '../Profile/Profile'
+import { useAuth0 } from '@auth0/auth0-react'
+
 function NavBar() {
+const {isAuthenticated} = useAuth0()
+
+
+
   return (
     <div>
       <section className={style.container}>
@@ -28,6 +37,16 @@ function NavBar() {
         <div>
           <SearcBar />
         </div>
+        <div>
+          {isAuthenticated ? (
+        <>
+          <Profile />
+          <Logout />
+        </>
+      ) : (
+        <Login />
+      )}
+        </div>
       </section>
       <section className={style.container}>
         <Filters/>
@@ -38,3 +57,4 @@ function NavBar() {
 }
 
 export default NavBar;
+
