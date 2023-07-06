@@ -3,10 +3,15 @@ import styles from './Logout.module.css'
 
 
 export const Logout = () => {
+  const { logout } = useAuth0();
 
-    const { logout } = useAuth0()
+  const handleLogout = () => {
+    logout({ returnTo: window.location.reload });
+  };
+
+    
     return (
-        <button className={styles.boton} onClick={() => logout({ returnTo: window.location.origin })}>
+        <button className={styles.boton} onClick={handleLogout}>
         Logout
       </button>
     )
