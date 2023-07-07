@@ -5,6 +5,7 @@ import CardsContainer from '../CardsContainer/CardsContainer'
 import Footer from '../Footer/Footer'
 import { useDispatch } from "react-redux";
 import { allCategories, allProducts } from '../../Redux/actions'
+import NavBar from '../NavBar/NavBar';
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -16,6 +17,7 @@ const Home = () => {
 
   return (
     <div>
+      <NavBar/>
         {/* <Carrusel/> */}
         <img src={banner} alt="banner" width='80%' style={{paddingTop: 20}}/>
         <CardsContainer/>
@@ -25,3 +27,6 @@ const Home = () => {
 }
 
 export default Home
+
+
+//aca traje NavBar, no estoy muy seguro
