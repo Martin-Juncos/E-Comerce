@@ -3,12 +3,12 @@ import './App.css';
 
 import Home from './components/Home/Home';
 import About from './components/About/About';
-//import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import CreateProduct from './components/CreateProduct/CreateProduct';
 import Detail from './components/Detail/Detail';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Navigate } from 'react-router-dom';
-import LandingPage from './components/LandingPage/LandingPage';
+//import LandingPage from './components/LandingPage/LandingPage';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -17,7 +17,7 @@ function App() {
   if (isAuthenticated) {
     // Redireccionar a "/home" 
      if (location.pathname === '/') {
-      return <Navigate to="/*" />;
+      return <Navigate to="/home" />;
     }
   }
 
@@ -25,9 +25,9 @@ function App() {
 
   return (
     <div className="App">
-     {/* <NavBar/> */}
+     <NavBar/>
       <Routes>
-        <Route path='/' element= {<LandingPage/> } />
+        {/* <Route exact path='/' element= {<LandingPage/> } /> */}
         <Route path='/*' element= {<Home/>} />
         <Route  path='/home' element= {<Home/>} />
         <Route path='/about' element= {<About/>} />
