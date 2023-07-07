@@ -6,6 +6,9 @@ import Footer from '../Footer/Footer'
 import { useDispatch } from "react-redux";
 import { allCategories, allProducts } from '../../Redux/actions'
 
+
+
+
 const Home = () => {
   const dispatch = useDispatch();
 
@@ -19,6 +22,7 @@ const Home = () => {
     <div>
       
         {/* <Carrusel/> */}
+        
         <img src={banner} alt="banner" width='80%' style={{paddingTop: 20}}/>
         <CardsContainer/>
         <Footer/>
