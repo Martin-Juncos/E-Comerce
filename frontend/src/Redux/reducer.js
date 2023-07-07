@@ -7,6 +7,9 @@ import {
   GET_PRODUCT_BY_ID,
   GET_PRODUCT_BY_NAME,
   ORDER_PRODUCT_BY_BRAND,
+  ADD_TO_FAVORITES,
+  REMOVE_FROM_FAVORITES,
+  
 } from "./actions.js";
 
 const initialState = {
@@ -16,6 +19,7 @@ const initialState = {
   allCategories: [],
   allCategoriesCopy: [],
   loading: false,
+  favoriteProducts: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -62,6 +66,18 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         allProducts: action.payload,
+      };
+      case ADD_TO_FAVORITES:
+      return {
+        ...state,
+        favoriteProducts: [...state.favoriteProducts, action.payload],
+      };
+      case REMOVE_FROM_FAVORITES:
+      return {
+        ...state,
+        favoriteProducts: state.favoriteProducts.filter(
+          (product) => product.id !== action.payload
+        ),
       };
     default:
       return {

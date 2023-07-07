@@ -9,6 +9,11 @@ export const ORDER_PRODUCT_BY_PRICE = "ORDER_PRODUCT_BY_PRICE";
 export const ORDER_PRODUCT_BY_RATING = "ORDER_PRODUCT_BY_RATING";
 export const ORDER_PRODUCT_BY_BRAND = "ORDER_PRODUCT_BY_BRAND";
 
+
+export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES"
+export const REMOVE_FROM_FAVORITES = "REMOVE_FROM_FAVORITES";
+
+
 export const allProducts = () => {
   return async function (dispatch) {
     const products = (await axios.get("http://localhost:3001/products")).data;
@@ -127,5 +132,21 @@ export const orderProductByBrand = (selectedBrand) => {
       productBrand = allProducts.filter((p) => p.brand.includes(selectedBrand));
     }
     dispatch({ type: ORDER_PRODUCT_BY_BRAND, payload: productBrand });
+  };
+};
+
+
+export const addToFavorites = (product) => {
+  return {
+    type: ADD_TO_FAVORITES,
+    payload: product,
+  };
+};
+
+
+export const removeFromFavorites = (productId) => {
+  return {
+    type: REMOVE_FROM_FAVORITES,
+    payload: productId,
   };
 };

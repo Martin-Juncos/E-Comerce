@@ -35,6 +35,11 @@ const {isAuthenticated} = useAuth0()
           </a>
         </div>
         <div>
+          <a className={style.a} href="/favorites">
+            <h3>Favorites</h3>
+          </a>
+        </div>
+        <div>
           <SearcBar />
         </div>
         <div>

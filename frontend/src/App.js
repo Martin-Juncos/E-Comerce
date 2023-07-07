@@ -8,6 +8,8 @@ import CreateProduct from './components/CreateProduct/CreateProduct';
 import Detail from './components/Detail/Detail';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Navigate } from 'react-router-dom';
+import Favorites from './components/Favorites/Favorites';
+//import Favorites from './components/Favorites/Favorites';
 //import LandingPage from './components/LandingPage/LandingPage';
 
 function App() {
@@ -32,6 +34,7 @@ function App() {
         <Route  path='/home' element= {<Home/>} />
         <Route path='/about' element= {<About/>} />
         <Route path='/form' element= {<CreateProduct/>} />
+        <Route path="/favorites" element= {<Favorites/>} />
         <Route path='/detail/:id' element= {<Detail/>} />
       </Routes>
     </div>
