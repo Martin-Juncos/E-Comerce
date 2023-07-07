@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <div>
      
-        <Link to= '/home' >
+        <Link to= '/' >
         <button>Home</button>
         </Link>
         <Login/>
