@@ -4,7 +4,8 @@ import { removeFromFavorites } from "../../Redux/actions";
 
 function Favorites() {
   const dispatch = useDispatch();
-  const favoriteProducts = useSelector((state) => state.favoriteProducts);
+  const favorites = useSelector((state) => state.favoriteProducts);
+  console.log(favorites)
 
   const handleRemoveFromFavorites = (productId) => {
     dispatch(removeFromFavorites(productId));
@@ -13,19 +14,24 @@ function Favorites() {
   return (
     <div>
       <h2>Productos Favoritos</h2>
-      {favoriteProducts.length === 0 ? (
+      {favorites.length === 0 ? (
         <p>No tienes productos favoritos.</p>
       ) : (
         <ul>
-          {favoriteProducts.map((product) => (
-            <li key={product.id}>
-              <h3>{product.title}</h3>
-              <p>Precio: {product.price}</p>
-              <button onClick={() => handleRemoveFromFavorites(product.id)}>
-                Eliminar de favoritos
-              </button>
-            </li>
-          ))}
+          {favorites.map((product) => {
+            return (
+              <div>
+                <li key={product.id}>
+                  <h3>{product.title}</h3>
+                  <p>Precio: {product.price}</p>
+                  <button onClick={() => handleRemoveFromFavorites(product.id)}>
+                    Eliminar de favoritos
+                  </button>
+                </li>
+              </div>
+            )
+          }
+          )}
         </ul>
       )}
     </div>

@@ -6,13 +6,14 @@ import SearcBar from "../SearchBar/SearcBar";
 import Filters from "../Filters/Filters";
 import Order from "../Order/Order";
 
- import {Login} from '../Login/Login'
-import {Logout} from '../Logout/Logout'
- import {Profile} from '../Profile/Profile'
+import { Login } from '../Login/Login'
+import { Logout } from '../Logout/Logout'
+import { Profile } from '../Profile/Profile'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Link } from "react-router-dom";
 
 function NavBar() {
-const {isAuthenticated} = useAuth0()
+  const { isAuthenticated } = useAuth0()
 
 
 
@@ -25,37 +26,38 @@ const {isAuthenticated} = useAuth0()
           </a>
         </div>
         <div>
-          <a className={style.a} href="/about">
+          <Link className={style.a} to="/about">
             <h3>Nosotros</h3>
-          </a>
+          </Link>
         </div>
         <div>
-          <a className={style.a} href="/form">
+          <Link className={style.a} to="/form">
             <h3>Crear Producto</h3>
-          </a>
+          </Link>
         </div>
         <div>
-          <a className={style.a} href="/favorites">
+          <Link className={style.a} to="/favorites" >
             <h3>Favorites</h3>
-          </a>
+          </Link>
+
         </div>
         <div>
           <SearcBar />
         </div>
         <div>
           {isAuthenticated ? (
-        <>
-          <Profile />
-          <Logout />
-        </>
-      ) : (
-        <Login />
-      )}
+            <>
+              <Profile />
+              <Logout />
+            </>
+          ) : (
+            <Login />
+          )}
         </div>
       </section>
       <section className={style.container}>
-        <Filters/>
-        <Order/>
+        <Filters />
+        <Order />
       </section>
     </div>
   );
