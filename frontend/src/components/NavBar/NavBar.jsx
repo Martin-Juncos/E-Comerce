@@ -5,6 +5,7 @@ import smartech2 from "../../assets/SmarTech2.png";
 import SearcBar from "../SearchBar/SearcBar";
 import Filters from "../Filters/Filters";
 import Order from "../Order/Order";
+//import Cart from "../ShoppingCart/Cart";
 
 import { Login } from '../Login/Login'
 import { Logout } from '../Logout/Logout'

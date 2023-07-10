@@ -8,6 +8,27 @@ export const CATEGORY_FILTER = "CATEGORY_FILTER";
 export const ORDER_PRODUCT_BY_PRICE = "ORDER_PRODUCT_BY_PRICE";
 export const ORDER_PRODUCT_BY_RATING = "ORDER_PRODUCT_BY_RATING";
 export const ORDER_PRODUCT_BY_BRAND = "ORDER_PRODUCT_BY_BRAND";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const CLEAR_CART = "CLEAR_CART";
+export const REMOVE_ALL_FROM_CART = "REMOVE_ALL_FROM_CART";
+export const REMOVE_ONE_FROM_CART = "REMOVE_ONE_FROM_CART";
+
+export const addToCart = (id) => {
+  return async function (dispatch, getState) {
+    const allProducts = [...getState().allProductsCopy];
+    let newItem = allProducts.find((product) => product.id === id);
+    dispatch({ type: ADD_TO_CART, payload: {...newItem, quantity: 1} });
+
+    // const allItemCart = [...getState().cart];
+    // let itemInCart = allItemCart.find((item) => item.id === newItem.id);
+    // if (!itemInCart) {
+    //   dispatch({ type: ADD_TO_CART, payload: {...newItem, quantity: 1} });
+    // } else {
+    //   //allItemCart.map((item) => (item.id === itemInCart.id) &&{...item, quantity: item.quantity + 1} )
+    //   allItemCart.map((item) => (item.id === itemInCart.id) && dispatch({ type: ADD_TO_CART, payload: {...item, quantity: item.quantity + 1} }))
+    // }
+  };
+};
 
 
 export const ADD_TO_FAVORITES = "ADD_TO_FAVORITES"
@@ -49,7 +70,7 @@ export const filterCategory = (catName) => {
   return async function (dispatch, getState) {
     const allProducts = [...getState().allProductsCopy];
     let productsFilterByCategory;
-    if (catName === "all") {  
+    if (catName === "all") {
       productsFilterByCategory = allProducts;
     } else {
       productsFilterByCategory = allProducts.filter(

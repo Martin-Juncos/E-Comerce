@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 import Score from "../Score/Score";
 import { useDispatch, useSelector } from "react-redux";
-import { addToFavorites, removeFromFavorites } from "../../Redux/actions";
+import { addToCart,addToFavorites, removeFromFavorites } from "../../Redux/actions";
 
 function Card(props) {
 
@@ -15,6 +15,10 @@ function Card(props) {
 
   
   const { id, title, images, price, rating } = props;
+  const handlerAddProduct = (e) => {
+    e.preventDefault()
+    dispatch(addToCart(id))
+  }
   
   const isFavorite = favoriteProducts.some((product) => product.id === id);
 
@@ -45,6 +49,7 @@ function Card(props) {
           <Link to={`/detail/${id}`}>
             <button>mas info...</button>
           </Link>
+          <button onClick={handlerAddProduct}>Agregar al carrito</button>
         </div>
       </div>
     </div>
