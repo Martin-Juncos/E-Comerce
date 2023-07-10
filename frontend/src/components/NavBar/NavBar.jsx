@@ -7,7 +7,16 @@ import Filters from "../Filters/Filters";
 import Order from "../Order/Order";
 import Cart from "../ShoppingCart/Cart";
 
+ import {Login} from '../Login/Login'
+import {Logout} from '../Logout/Logout'
+ import {Profile} from '../Profile/Profile'
+import { useAuth0 } from '@auth0/auth0-react'
+
 function NavBar() {
+const {isAuthenticated} = useAuth0()
+
+
+
   return (
     <div>
       <section className={style.container}>
@@ -27,7 +36,22 @@ function NavBar() {
           </a>
         </div>
         <div>
+          <a className={style.a} href="/favorites">
+            <h3>Favorites</h3>
+          </a>
+        </div>
+        <div>
           <SearcBar />
+        </div>
+        <div>
+          {isAuthenticated ? (
+        <>
+          <Profile />
+          <Logout />
+        </>
+      ) : (
+        <Login />
+      )}
         </div>
       </section>
       <section className={style.container}>
@@ -40,3 +64,4 @@ function NavBar() {
 }
 
 export default NavBar;
+

@@ -2,16 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 import Score from "../Score/Score";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../Redux/actions";
 
 function Card(props) {
-  const { id, title, images, price, rating } = props;
+
   const dispatch = useDispatch()
+  const favoriteProducts = useSelector(
+    (state) => state.favoriteProducts
+  );
+
+  
+  const { id, title, images, price, rating } = props;
   const handlerAddProduct = (e) => {
     e.preventDefault()
     dispatch(addToCart(id))
   }
+  
+  const isFavorite = favoriteProducts.some((product) => product.id === id);
+
+  const handleAddToFavorites = () => {
+    dispatch(addToFavorites(props));
+  };
+
+  const handleRemoveFromFavorites = () => {
+    dispatch(removeFromFavorites(id));
+  };
+
+  
   return (
     <div key={id} className={style.block}>
       <img src={images} alt="img not found" width="150" height="150" />
@@ -25,6 +43,11 @@ function Card(props) {
           </Link>
           <button onClick={handlerAddProduct}>Agregar al carrito</button>
         </div>
+        {isFavorite ? (
+          <button onClick={handleRemoveFromFavorites}>❤️</button>
+        ) : (
+          <button onClick={handleAddToFavorites}>🤍</button>
+        )}
       </div>
     </div>
   );
