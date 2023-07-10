@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 import Score from "../Score/Score";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../Redux/actions";
+import { addToCart,addToFavorites, removeFromFavorites } from "../../Redux/actions";
 
 function Card(props) {
 
