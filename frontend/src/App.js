@@ -13,7 +13,6 @@ import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Navigate } from 'react-router-dom';
 import Favorites from './components/Favorites/Favorites';
-//import Favorites from './components/Favorites/Favorites';
 //import LandingPage from './components/LandingPage/LandingPage';
 >>>>>>> b20515fec411fa77be114fe7d0beb38cc783c50c
 

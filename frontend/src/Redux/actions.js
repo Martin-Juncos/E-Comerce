@@ -157,17 +157,17 @@ export const orderProductByBrand = (selectedBrand) => {
 };
 
 
-export const addToFavorites = (product) => {
+export const addToFavorites = (favorite) => {
   return {
     type: ADD_TO_FAVORITES,
-    payload: product,
+    payload: favorite,
   };
 };
 
 
-export const removeFromFavorites = (productId) => {
+export const removeFromFavorites = (id) => {
   return {
     type: REMOVE_FROM_FAVORITES,
-    payload: productId,
+    payload: id,
   };
 };
