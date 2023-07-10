@@ -12,7 +12,8 @@ import {
   REMOVE_ALL_FROM_CART,
   REMOVE_ONE_FROM_CART,
   ADD_TO_FAVORITES,
-  REMOVE_FROM_FAVORITES
+  REMOVE_FROM_FAVORITES,
+  ALL_PROD_CART,
 } from "./actions.js";
 
 const initialState = {
@@ -23,9 +24,9 @@ const initialState = {
   allCategoriesCopy: [],
   loading: false,
   cart: [],
-  favoriteProducts : []
+  favoriteProducts: [],
 };
-console.log(initialState.cart)
+console.log(initialState.cart);
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -72,37 +73,74 @@ export default function reducer(state = initialState, action) {
         ...state,
         allProducts: action.payload,
       };
-    case ADD_TO_CART:
+    case ALL_PROD_CART: {
       return {
         ...state,
-        cart: [...state.cart, action.payload],
+        cart: state.cart
+      }
+    }
+    case ADD_TO_CART: {
+      let newItem = state.allProducts.find(
+        (product) => product.id === action.payload
+      );
+      let itemInCart = state.cart.find((item) => item.id === newItem.id);
+      return itemInCart
+        ? {
+            ...state,
+            cart: state.cart.map((item) =>
+              item.id === newItem.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+            ),
+          }
+        : {
+            ...state,
+            cart: [...state.cart, { ...newItem, quantity: 1 }],
+          };
+    }
+    case REMOVE_ONE_FROM_CART: {
+      let itemToDelete = state.cart.find((item) => item.id === action.payload);
+
+      return itemToDelete.quantity > 1
+        ? {
+            ...state,
+            cart: state.cart.map((item) =>
+              item.id === action.payload
+                ? { ...item, quantity: item.quantity - 1 }
+                : item
+            ),
+          }
+        : {
+            ...state,
+            cart: state.cart.filter((item) => item.id !== action.payload),
+          };
+    }
+
+    case REMOVE_ALL_FROM_CART: {
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
       };
+    }
+
     case CLEAR_CART:
       return {
         ...state,
-        cart: action.payload,
+        cart:[],
       };
-    case REMOVE_ALL_FROM_CART:
+
+
+    case ADD_TO_FAVORITES:
       return {
         ...state,
-        cart: action.payload,
+        favoriteProducts: [...state.favoriteProducts, action.payload],
       };
-    case REMOVE_ONE_FROM_CART:
+    case REMOVE_FROM_FAVORITES:
       return {
         ...state,
-        cart: action.payload,
-      };
-      case ADD_TO_FAVORITES:
-      return {
-        ...state,
-        favoriteProducts: [...state.favoriteProducts, action.payload ]
-      };
-      case REMOVE_FROM_FAVORITES:
-      return {
-        ...state,
-        favoriteProducts: state.favoriteProducts.filter( (product) => {
+        favoriteProducts: state.favoriteProducts.filter((product) => {
           return product.id !== action.payload;
-        })
+        }),
       };
     default:
       return {

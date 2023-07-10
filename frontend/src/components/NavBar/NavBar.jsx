@@ -5,7 +5,7 @@ import smartech2 from "../../assets/SmarTech2.png";
 import SearcBar from "../SearchBar/SearcBar";
 import Filters from "../Filters/Filters";
 import Order from "../Order/Order";
-//import Cart from "../ShoppingCart/Cart";
+import Cart from "../ShoppingCart/Cart";
 
 import { Login } from '../Login/Login'
 import { Logout } from '../Logout/Logout'
@@ -22,9 +22,9 @@ function NavBar() {
     <div>
       <section className={style.container}>
         <div className={style.img}>
-          <a href="/home">
+          <Link to="/home">
             <img src={smartech2} alt="img not found" width="300rem" />
-          </a>
+          </Link>
         </div>
         <div>
           <Link className={style.a} to="/about">
@@ -59,6 +59,7 @@ function NavBar() {
       <section className={style.container}>
         <Filters />
         <Order />
+        <Cart/>
       </section>
     </div>
   );
