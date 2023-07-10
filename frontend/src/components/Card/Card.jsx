@@ -11,6 +11,7 @@ function Card(props) {
   const favoriteProducts = useSelector(
     (state) => state.favoriteProducts
   );
+  console.log(favoriteProducts)
 
   
   const { id, title, images, price, rating } = props;
@@ -28,6 +29,13 @@ function Card(props) {
   
   return (
     <div key={id} className={style.block}>
+      <div>
+      {isFavorite ? (
+          <button onClick={handleRemoveFromFavorites}>❤️</button>
+        ) : (
+          <button onClick={handleAddToFavorites}>🤍</button>
+        )}
+      </div>
       <img src={images} alt="img not found" width="150" height="150" />
       <div className={style.neon}>
         <div className="info">
@@ -38,11 +46,6 @@ function Card(props) {
             <button>mas info...</button>
           </Link>
         </div>
-        {isFavorite ? (
-          <button onClick={handleRemoveFromFavorites}>❤️</button>
-        ) : (
-          <button onClick={handleAddToFavorites}>🤍</button>
-        )}
       </div>
     </div>
   );
