@@ -11,7 +11,7 @@ function Card(props) {
   const favoriteProducts = useSelector(
     (state) => state.favoriteProducts
   );
-  console.log(favoriteProducts)
+
 
   
   const { id, title, images, price, rating } = props;

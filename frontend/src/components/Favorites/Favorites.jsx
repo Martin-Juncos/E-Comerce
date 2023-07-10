@@ -20,8 +20,8 @@ function Favorites() {
         <ul>
           {favorites.map((product) => {
             return (
-              <div>
-                <li key={product.id}>
+              <div  key={product.id}>
+                <li>
                   <h4>{product.title}</h4>
                   <img src={product.images} alt={product.title} />
                   <p>Precio: ${product.price}</p>

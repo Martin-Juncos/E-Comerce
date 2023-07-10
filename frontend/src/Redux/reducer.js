@@ -11,6 +11,8 @@ import {
   CLEAR_CART,
   REMOVE_ALL_FROM_CART,
   REMOVE_ONE_FROM_CART,
+  ADD_TO_FAVORITES,
+  REMOVE_FROM_FAVORITES
 } from "./actions.js";
 
 const initialState = {
@@ -21,6 +23,7 @@ const initialState = {
   allCategoriesCopy: [],
   loading: false,
   cart: [],
+  favoriteProducts : []
 };
 console.log(initialState.cart)
 
@@ -88,6 +91,18 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         cart: action.payload,
+      };
+      case ADD_TO_FAVORITES:
+      return {
+        ...state,
+        favoriteProducts: [...state.favoriteProducts, action.payload ]
+      };
+      case REMOVE_FROM_FAVORITES:
+      return {
+        ...state,
+        favoriteProducts: state.favoriteProducts.filter( (product) => {
+          return product.id !== action.payload;
+        })
       };
     default:
       return {
