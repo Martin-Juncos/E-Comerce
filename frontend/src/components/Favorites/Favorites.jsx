@@ -5,10 +5,10 @@ import { removeFromFavorites } from "../../Redux/actions";
 function Favorites() {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favoriteProducts);
-  console.log(favorites)
+  
 
-  const handleRemoveFromFavorites = (productId) => {
-    dispatch(removeFromFavorites(productId));
+  const handleRemoveFromFavorites = (id) => {
+    dispatch(removeFromFavorites(id));
   };
 
   return (
@@ -22,8 +22,9 @@ function Favorites() {
             return (
               <div>
                 <li key={product.id}>
-                  <h3>{product.title}</h3>
-                  <p>Precio: {product.price}</p>
+                  <h4>{product.title}</h4>
+                  <img src={product.images} alt={product.title} />
+                  <p>Precio: ${product.price}</p>
                   <button onClick={() => handleRemoveFromFavorites(product.id)}>
                     Eliminar de favoritos
                   </button>
