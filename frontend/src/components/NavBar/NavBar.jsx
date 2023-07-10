@@ -5,7 +5,7 @@ import smartech2 from "../../assets/SmarTech2.png";
 import SearcBar from "../SearchBar/SearcBar";
 import Filters from "../Filters/Filters";
 import Order from "../Order/Order";
-import Cart from "../ShoppingCart/Cart";
+//import Cart from "../ShoppingCart/Cart";
 
 import { Login } from '../Login/Login'
 import { Logout } from '../Logout/Logout'
@@ -57,14 +57,8 @@ function NavBar() {
         </div>
       </section>
       <section className={style.container}>
-<<<<<<< HEAD
-        <Filters/>
-        <Order/>
-        <Cart/>
-=======
         <Filters />
         <Order />
->>>>>>> 7f6f7014c1c1fc4d135897b3cc5af1d07e15346e
       </section>
     </div>
   );
