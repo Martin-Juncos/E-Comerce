@@ -5,6 +5,7 @@ import smartech2 from "../../assets/SmarTech2.png";
 import SearcBar from "../SearchBar/SearcBar";
 import Filters from "../Filters/Filters";
 import Order from "../Order/Order";
+import Cart from "../ShoppingCart/Cart";
 
 function NavBar() {
   return (
@@ -32,6 +33,7 @@ function NavBar() {
       <section className={style.container}>
         <Filters/>
         <Order/>
+        <Cart/>
       </section>
     </div>
   );

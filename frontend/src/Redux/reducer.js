@@ -7,6 +7,10 @@ import {
   GET_PRODUCT_BY_ID,
   GET_PRODUCT_BY_NAME,
   ORDER_PRODUCT_BY_BRAND,
+  ADD_TO_CART,
+  CLEAR_CART,
+  REMOVE_ALL_FROM_CART,
+  REMOVE_ONE_FROM_CART,
 } from "./actions.js";
 
 const initialState = {
@@ -16,7 +20,9 @@ const initialState = {
   allCategories: [],
   allCategoriesCopy: [],
   loading: false,
+  cart: [],
 };
+console.log(initialState.cart)
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -62,6 +68,26 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         allProducts: action.payload,
+      };
+    case ADD_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+    case CLEAR_CART:
+      return {
+        ...state,
+        cart: action.payload,
+      };
+    case REMOVE_ALL_FROM_CART:
+      return {
+        ...state,
+        cart: action.payload,
+      };
+    case REMOVE_ONE_FROM_CART:
+      return {
+        ...state,
+        cart: action.payload,
       };
     default:
       return {
