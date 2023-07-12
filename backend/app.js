@@ -33,7 +33,6 @@ app.post("/create_preference", (req, res) => {
     },
     auto_return: "approved",
   };
-  console.log(preference);
   mercadopago.preferences
     .create(preference)
     .then(function (response) {
