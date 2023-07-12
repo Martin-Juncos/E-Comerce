@@ -94,12 +94,10 @@ function ShoppingCart() {
               <tr>
                 <td>{totalSale}</td>
               </tr>
-              <tr>
-                <button onClick={handlerBuy}>Pagar</button>
-                {preferenceId && <Wallet initialization={{ preferenceId }} />}
-              </tr>
             </tbody>
           </table>
+                <button onClick={handlerBuy}>Pagar</button>
+                {preferenceId && <Wallet initialization={{ preferenceId }} />}
         </div>
       </div>
       <Link to="/home">
