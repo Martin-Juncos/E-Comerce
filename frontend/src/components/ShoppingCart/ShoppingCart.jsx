@@ -1,11 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import style from "./ShoppingCart.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, delFromCart } from "../../Redux/actions";
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 
 function ShoppingCart() {
   const productShop = useSelector((state) => state.cart);
+  const [preferenceId, setPreferenceId] = useState(null);
+
+  const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+  initMercadoPago(publicKey);
+
+  const createPreference = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/create_preference",
+        productShop
+      );
+      const { id } = response.data;
+      return id;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handlerBuy = async () => {
+    const id = await createPreference();
+    setPreferenceId(id);
+  };
+
   const totalSale = productShop.reduce(
     (acc, curr) => acc + curr.price * curr.quantity,
     0
@@ -70,9 +95,8 @@ function ShoppingCart() {
                 <td>{totalSale}</td>
               </tr>
               <tr>
-                <button onClick={() => alert("Se realizo la compra")}>
-                  Pagar
-                </button>
+                <button onClick={handlerBuy}>Pagar</button>
+                {preferenceId && <Wallet initialization={{ preferenceId }} />}
               </tr>
             </tbody>
           </table>
