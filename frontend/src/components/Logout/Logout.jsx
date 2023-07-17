@@ -6,7 +6,7 @@ export const Logout = () => {
   const { logout } = useAuth0();
 
   const handleLogout = () => {
-    logout({ returnTo: window.location.reload });
+    logout({ returnTo: window.location.reload() });
   };
 
     

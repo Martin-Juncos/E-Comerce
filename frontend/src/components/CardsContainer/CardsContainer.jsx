@@ -4,21 +4,22 @@ import Card from "../Card/Card";
 import {useSelector} from 'react-redux'
 //import { data } from "./data";
 import Paginado from "../Paginado/Paginado";
+import Loading from "../Loading/Loading";
 
 function CardsContainer() {
 
 
-  var data = []
+  //var data = []
   const loadingState = useSelector((state) => state.loading);
   const  products = useSelector((state) => state.allProducts)
-  if(loadingState) data = products
+  //if(loadingState) data = products
 
 
   const [currentPage, setCurrentPage] = useState(1);
   const productPerPage = 6;
   const indexLastProduct = currentPage * productPerPage;
   const indexFirstProduct = indexLastProduct - productPerPage;
-  const productsCurrent = data.slice(indexFirstProduct, indexLastProduct);
+  const productsCurrent = products.slice(indexFirstProduct, indexLastProduct);
   const productsFinal = [...productsCurrent]
 
   return (
@@ -30,7 +31,10 @@ function CardsContainer() {
           setCurrentPage={setCurrentPage}
         />
       </div>
-      <div className={style.card}>
+      {
+        !loadingState ? 
+        <Loading/> :
+        <div className={style.card}>
         {productsFinal.map((prod) => {
           return (
             <Card
@@ -45,6 +49,7 @@ function CardsContainer() {
           );
         })}
       </div>
+      }
     </div>
   );
 }

@@ -4,7 +4,7 @@ import banner from '../../assets/banner.png'
 import CardsContainer from '../CardsContainer/CardsContainer'
 import Footer from '../Footer/Footer'
 import { useDispatch } from "react-redux";
-import { allCategories, allProducts } from '../../Redux/actions'
+import { allCategories, allProdCart, allProducts } from '../../Redux/actions'
 
 
 
@@ -14,7 +14,8 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(allProducts());
-    dispatch(allCategories())
+    dispatch(allCategories());
+    dispatch(allProdCart())
   }, [dispatch]);
 
 
