@@ -18,7 +18,7 @@ function App() {
 
   if (isAuthenticated) {
     // Redireccionar a "/home" 
-     if (location.pathname === '/') {
+     if (location.pathname === '/' || location.pathname === "/*") {
       return <Navigate to="/home" />;
     }
   }
