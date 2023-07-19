@@ -46,11 +46,11 @@ export const getProductByName = (title) => {
 };
 
 export const deleteProduct = (id)=> {
-  console.log(id)
+  
   return async function (dispatch) {
      await axios.delete(`http://localhost:3001/products/${id}`)
       
-    dispatch({ type: DELETE_PRODUCT });
+    dispatch({ type: DELETE_PRODUCT , payload:id});
   };
 }
 // CATEGORY
