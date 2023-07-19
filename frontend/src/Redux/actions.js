@@ -4,6 +4,8 @@ export const ALL_PRODUCTS = "ALL_PRODUCTS";
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
 export const DELETE_PRODUCT = "DELETE_PRODUCT";
+//export const UPDATE_PRODUCT = "UPDATE_PRODUCT";
+export const LEAVE_COMMENT = "LEAVE_COMMENT";
 // CATEGORY
 export const ALL_CATEGORIES = "ALL_CATEGORIES";
 //FILTER
@@ -53,10 +55,26 @@ export const deleteProduct = (id)=> {
     dispatch({ type: DELETE_PRODUCT , payload:id});
   };
 }
+
+//export const updateProduct = ()=>{}
+
+export const leaveComment = (id,comment) => {
+  return async function (dispatch){
+    
+      const response = await axios.post(`http://localhost:3001/products/${id}/comments`, { comment });
+      const updatedProduct = await response.data;
+      dispatch({type: LEAVE_COMMENT, payload: updatedProduct})
+  
+  }
+}
+
+
+
+
 // CATEGORY
 export const allCategories = () => {
   return async function (dispatch) {
-    const categories = (await axios.get("http://localhost:3001/category")).data;
+    const categories = (await axios.get("http://localhost:3001/category")).data; 
     dispatch({ type: ALL_CATEGORIES, payload: categories });
   };
 };
