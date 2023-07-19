@@ -61,7 +61,9 @@ export default function reducer(state = initialState, action) {
       case DELETE_PRODUCT:
       return {
         ...state,
-        allProducts: state.allProducts 
+        allProducts: state.allProducts.filter((prod)=>{
+          return prod.id !== action.payload
+        }) 
       };
     case ORDER_PRODUCT_BY_PRICE:
       return {

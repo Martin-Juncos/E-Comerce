@@ -56,7 +56,12 @@ function CreateProduct() {
   const handlerChange = (event) => {
     const value = event.target.value;
     const property = event.target.name;
-    setProducto({
+    if (property === 'brand' || property === 'category') {
+      setProducto({
+        ...product,
+        [property]: value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+      });
+    } else {setProducto({
       ...product,
       [property]: value,
     });
@@ -65,7 +70,8 @@ function CreateProduct() {
         ...product,
         [property] : value
       })
-    )
+    )}
+    
   };
   const handleSubmit = (event) => {
     event.preventDefault();
