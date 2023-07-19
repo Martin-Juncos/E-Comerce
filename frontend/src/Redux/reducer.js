@@ -14,7 +14,8 @@ import {
   ADD_TO_FAVORITES,
   REMOVE_FROM_FAVORITES,
   ALL_PROD_CART,
-  DELETE_PRODUCT
+  DELETE_PRODUCT,
+  LEAVE_COMMENT
 } from "./actions.js";
 
 const initialState = {
@@ -26,6 +27,7 @@ const initialState = {
   loading: false,
   cart: [],
   favoriteProducts: [],
+  comments: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -64,6 +66,11 @@ export default function reducer(state = initialState, action) {
         allProducts: state.allProducts.filter((prod)=>{
           return prod.id !== action.payload
         }) 
+      };
+      case LEAVE_COMMENT: 
+      return {
+        ...state,
+        comments: [...state.comments, action.payload] // Agrega el nuevo comentario al estado de los comentarios
       };
     case ORDER_PRODUCT_BY_PRICE:
       return {

@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react'
 import {useParams} from 'react-router-dom'
+//import { useHistory } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 import { addToCart, getProductById } from '../../Redux/actions';
 
 function Detail() {
+  //const history = useHistory()
+
     const { id } = useParams();
     const dispatch = useDispatch()
     const product = useSelector(state => state.product)
+    
+
     useEffect(() => {
       dispatch(getProductById(id))
     }, [dispatch, id])
@@ -14,6 +19,11 @@ function Detail() {
       e.preventDefault()
       dispatch(addToCart(id))
     }
+
+  //  const handleLeaveComment = () => {
+  //   history.push(`/products/${id}/comment`)
+  // }
+
   return (
     <div>
       <div>
@@ -26,6 +36,7 @@ function Detail() {
         </div>
         <div>
           <button onClick={handlerAddProduct}>Agregar al carrito</button>
+          {/* <button onClick={handleLeaveComment} >Dejanos tu comentario !</button> */}
         </div>
     </div>
   )
