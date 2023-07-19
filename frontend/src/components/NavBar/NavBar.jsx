@@ -32,11 +32,6 @@ function NavBar() {
           </Link>
         </div>
         <div>
-          <Link className={style.a} to="/form">
-            <h3>Crear Producto</h3>
-          </Link>
-        </div>
-        <div>
           <Link className={style.a} to="/favorites" >
             <h3>Favorites</h3>
           </Link>

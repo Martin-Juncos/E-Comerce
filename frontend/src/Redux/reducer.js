@@ -14,6 +14,7 @@ import {
   ADD_TO_FAVORITES,
   REMOVE_FROM_FAVORITES,
   ALL_PROD_CART,
+  DELETE_PRODUCT
 } from "./actions.js";
 
 const initialState = {
@@ -56,6 +57,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         allProducts: action.payload,
+      };
+      case DELETE_PRODUCT:
+      return {
+        ...state,
+        allProducts: state.allProducts 
       };
     case ORDER_PRODUCT_BY_PRICE:
       return {

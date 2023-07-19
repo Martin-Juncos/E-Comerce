@@ -3,6 +3,7 @@ import axios from "axios";
 export const ALL_PRODUCTS = "ALL_PRODUCTS";
 export const GET_PRODUCT_BY_ID = "GET_PRODUCT_BY_ID";
 export const GET_PRODUCT_BY_NAME = "GET_PRODUCT_BY_NAME";
+export const DELETE_PRODUCT = "DELETE_PRODUCT";
 // CATEGORY
 export const ALL_CATEGORIES = "ALL_CATEGORIES";
 //FILTER
@@ -43,6 +44,15 @@ export const getProductByName = (title) => {
     dispatch({ type: GET_PRODUCT_BY_NAME, payload: product });
   };
 };
+
+export const deleteProduct = (id)=> {
+  console.log(id)
+  return async function (dispatch) {
+     await axios.delete(`http://localhost:3001/products/${id}`)
+      
+    dispatch({ type: DELETE_PRODUCT });
+  };
+}
 // CATEGORY
 export const allCategories = () => {
   return async function (dispatch) {
