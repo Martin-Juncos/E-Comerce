@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {useParams} from 'react-router-dom'
+import {Navigate, useParams} from 'react-router-dom'
 //import { useHistory } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 import { addToCart, getProductById } from '../../Redux/actions';
@@ -20,9 +20,9 @@ function Detail() {
       dispatch(addToCart(id))
     }
 
-  //  const handleLeaveComment = () => {
-  //   history.push(`/products/${id}/comment`)
-  // }
+   const handleLeaveComment = () => {
+   <Navigate to={`/products/${id}/comment`}/>
+  }
 
   return (
     <div>
@@ -36,7 +36,7 @@ function Detail() {
         </div>
         <div>
           <button onClick={handlerAddProduct}>Agregar al carrito</button>
-          {/* <button onClick={handleLeaveComment} >Dejanos tu comentario !</button> */}
+          <button onClick={handleLeaveComment} >Dejanos tu comentario !</button>
         </div>
     </div>
   )
