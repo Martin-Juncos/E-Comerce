@@ -11,36 +11,14 @@
         name : {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                notEmpty: {
-                  msg: "Name is required"
-                }
-              }
         },
-        gender: {
-          type: DataTypes.STRING,
-          //unique : true
-      },
-      age: {
-        type: DataTypes.INTEGER,
-        //unique : true
-    },
         email: {
             type: DataTypes.STRING,
             //unique : true
         },
-        phone: {
+        picture: {
             type: DataTypes.STRING,
             //allowNull: false
-        },
-        adress: {
-          type: DataTypes.STRING
-        },
-        city: {
-          type: DataTypes.STRING
-        },
-        zipCode: {
-          type: DataTypes.STRING
         }
     },{timestamps:false})
   }

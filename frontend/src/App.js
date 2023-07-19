@@ -10,6 +10,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Navigate } from 'react-router-dom';
 import Favorites from './components/Favorites/Favorites';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import Users from './components/Users/Users';
+import Products from './components/Products/Products';
 //import LandingPage from './components/LandingPage/LandingPage';
 
 function App() {
@@ -33,10 +35,13 @@ function App() {
         <Route path='/*' element= {<Home/>} />
         <Route  path='/home' element= {<Home/>} />
         <Route path='/about' element= {<About/>} />
-        <Route path='/form' element= {<CreateProduct/>} />
         <Route path="/favorites" element= {<Favorites/>} />
         <Route path='/detail/:id' element= {<Detail/>} />
         <Route path='/shop' element= {<ShoppingCart/>} />
+        <Route path='/form' element= {<CreateProduct/>} />
+        <Route path='/users' element= {<Users/>} />
+        <Route path='/products' element= {<Products/>}/>
+
       </Routes>
     </div>
   );

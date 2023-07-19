@@ -17,6 +17,7 @@ mercadopago.configure({
   access_token: accessToken,
 });
 
+
 app.post("/create_preference", (req, res) => {
   const products = req.body;
   const items = products.map(({ title, price, quantity }) => ({
