@@ -1,3 +1,4 @@
+
 import axios from "axios";
 // PRODUCT
 export const ALL_PRODUCTS = "ALL_PRODUCTS";
@@ -62,8 +63,9 @@ export const leaveComment = (id,comment) => {
   return async function (dispatch){
     
       const response = await axios.post(`http://localhost:3001/products/${id}/comments`, { comment });
-      const updatedProduct = await response.data;
-      dispatch({type: LEAVE_COMMENT, payload: updatedProduct})
+      const updatedProduct =  response.data;
+      console.log(updatedProduct)
+      dispatch({type: LEAVE_COMMENT , payload: updatedProduct})
   
   }
 }
