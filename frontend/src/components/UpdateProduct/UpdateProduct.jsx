@@ -61,4 +61,4 @@ export default UpdateProduct
 //
 
 
-//ventada (modelo de card con el prod o uno nuevo)  
+//ventada (modelo de card con el prod o uno nuevo)  errerer
