@@ -14,6 +14,7 @@ import Users from './components/Users/Users';
 import Products from './components/Products/Products';
 //import LandingPage from './components/LandingPage/LandingPage';
 import CommentModal from "./components/CommentModal/CommentModal"
+import UpdateProduct from './components/UpdateProduct/UpdateProduct';
 function App() {
   const { isAuthenticated } = useAuth0();
   const location = useLocation()
@@ -42,7 +43,7 @@ function App() {
         <Route path='/users' element= {<Users/>} />
         <Route path='/products' element= {<Products/>}/>
         <Route path='/products/:id/comment' element= {<CommentModal/>}/>
-
+        <Route path='/updateproduct/:id' element= {<UpdateProduct/>}/>
       </Routes>
     </div>
   );
