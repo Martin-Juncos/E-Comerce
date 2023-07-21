@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductById } from '../../Redux/actions';
+import styles from './UpdateProduct.module.css';
 import axios from 'axios';
 
 function UpdateProduct() {
@@ -28,7 +29,6 @@ function UpdateProduct() {
   });
 
   useEffect(() => {
-    
     setProducto({
       title: product.title,
       description: product.description,
@@ -58,7 +58,7 @@ function UpdateProduct() {
   };
 
   return (
-    <div>
+    <div className={styles.container}> {/* Aplicar el estilo del contenedor principal */}
       <form onSubmit={(e) => handleSubmit(e, product.id)}>
         <label htmlFor="title">Nombre</label>
         <input
@@ -133,7 +133,7 @@ function UpdateProduct() {
 
         {/* Agregar campos de formulario para las imágenes */}
 
-        <button>Guardar</button>
+        <button type="submit" className={styles.submitButton}>Guardar</button> {/* Aplicar el estilo del botón de guardar */}
       </form>
     </div>
   );
