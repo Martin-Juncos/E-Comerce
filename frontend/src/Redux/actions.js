@@ -57,21 +57,16 @@ export const deleteProduct = (id)=> {
   };
 }
 
-//export const updateProduct = ()=>{}
-
 export const leaveComment = (id,comment) => {
   return async function (dispatch){
     
-      const response = await axios.post(`http://localhost:3001/products/${id}/comments`, { comment });
+      const response = await axios.post(`http://localhost:3001/comments/${id}`, { comment });
       const updatedProduct =  response.data;
       console.log(updatedProduct)
       dispatch({type: LEAVE_COMMENT , payload: updatedProduct})
   
   }
 }
-
-
-
 
 // CATEGORY
 export const allCategories = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductById } from '../../Redux/actions';
 import styles from './UpdateProduct.module.css';
@@ -9,6 +9,7 @@ import axios from 'axios';
 function UpdateProduct() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const product = useSelector((state) => state.product);
 
   useEffect(() => {
@@ -55,6 +56,7 @@ function UpdateProduct() {
   const handleSubmit = (e, id) => {
     e.preventDefault();
     axios.put(`http://localhost:3001/products/${id}`, producto);
+    navigate("/products")
   };
 
   return (
