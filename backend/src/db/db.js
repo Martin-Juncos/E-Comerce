@@ -2,6 +2,7 @@ const { Sequelize } = require("sequelize")
 const productModel = require("../models/Product.js")
 const userModel = require("../models/User.js")
 const categoryModel = require("../models/Category.js")
+const commentModel = require('../models/Comment.js')
 
 
 const DB_USER = "dev"
@@ -14,8 +15,9 @@ const database = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/
 productModel(database)
 userModel(database)
 categoryModel(database)
+commentModel(database)
 
-const { Product , User, Category} = database.models
+const { Product , User, Category, Comment} = database.models
 
 
 
