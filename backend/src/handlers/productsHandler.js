@@ -102,10 +102,13 @@ const deleteProductHandler = async (req, res) => {
 };
 
 
+
+
 module.exports = {
   getProductsHandler,
   createProductHandler,
   updateProductHandler,
   deleteProductHandler,
-  getProductByIdHandler
+  getProductByIdHandler,
+  
 };

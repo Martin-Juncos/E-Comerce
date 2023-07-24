@@ -1,11 +1,11 @@
-/* UpdateProduct.module.css */
 
-/* Estilos del contenedor principal */
+
+/*  del contenedor principal */
 .container {
     margin: 30px;
   }
   
-  /* Estilos de etiquetas y campos de entrada */
+  /*  etiquetas y campos de entrada */
   label {
     font-weight: bold;
     margin-bottom: 5px;
@@ -26,7 +26,7 @@
     resize: vertical;
   }
   
-  /* Estilos del botón de guardar */
+  /*  botón de guardar */
   button[type="submit"] {
     padding: 10px 20px;
     background-color: #007bff;
@@ -41,14 +41,14 @@
     background-color: #0056b3;
   }
   
-  /* Estilos para los mensajes de éxito o error (opcional) */
+  /* mensajes de exito o error  */
   .success-message,
   .error-message {
     margin-top: 10px;
     font-size: 16px;
-    color: green; /* para mensajes de éxito */
+    color: green; /* mensajes de exito */
   }
   
   .error-message {
-    color: red; /* para mensajes de error */
+    color: red; /*  mensajes de error */
   }
