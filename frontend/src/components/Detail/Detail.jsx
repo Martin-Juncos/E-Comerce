@@ -23,6 +23,10 @@ function Detail() {
    navigate(`/products/${id}/comment`)
   }
 
+  const handleViewComments = () => {
+    navigate(`/products/${id}/comments`); // Redirige a la página de comentarios
+  };
+
   return (
     <div>
       <div>
@@ -36,6 +40,7 @@ function Detail() {
         <div>
           <button onClick={handlerAddProduct}>Agregar al carrito</button>
           <button onClick={handleLeaveComment} >Dejanos tu comentario !</button>
+          <button onClick={handleViewComments}>Ver comentarios</button>
         </div>
     </div>
   )

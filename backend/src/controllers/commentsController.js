@@ -5,8 +5,8 @@ const getAllCommentsController = async () => {
     const response = await Comment.findAll()
     return  response
 }
-const getCommentsByIdController = async (id) => {
-    const data = await Comment.findByPk(id)
+const getCommentsByIdController = async (productId) => {
+    const data = await Comment.findAll(productId)
     return data
 }
 
