@@ -15,7 +15,8 @@ import {
   REMOVE_FROM_FAVORITES,
   ALL_PROD_CART,
   DELETE_PRODUCT,
-  LEAVE_COMMENT
+  LEAVE_COMMENT,
+  GET_COMMENTS_BY_PRODUCT
 } from "./actions.js";
 
 const initialState = {
@@ -70,7 +71,11 @@ export default function reducer(state = initialState, action) {
       case LEAVE_COMMENT: 
       return {
         ...state,
-        comments: [...state.comments, action.payload] // Agrega el nuevo comentario al estado de los comentarios
+      };
+      case GET_COMMENTS_BY_PRODUCT:
+      return {
+        ...state,
+        comments: action.payload, 
       };
     case ORDER_PRODUCT_BY_PRICE:
       return {

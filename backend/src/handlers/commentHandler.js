@@ -25,9 +25,9 @@ const getAllCommentsHandler = async (req, res) => {
     }
 };
 const getCommentsByIdHandler = async (req, res) => {
-  const { id } = req.params;
+  const { productId } = req.body;
   try {
-    const result = await getCommentsByIdController(id);
+    const result = await getCommentsByIdController(productId);
     res.status(200).json(result);
   } catch (error) {
     res.status(404).json({ error: error.message });

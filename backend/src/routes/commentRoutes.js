@@ -11,4 +11,4 @@ commentRoutes.get("/", getAllCommentsHandler)
 commentRoutes.get("/:id", getCommentsByIdHandler)
 
 
-module.exports = {commentRoutes}
+module.exports = {commentRoutes}    

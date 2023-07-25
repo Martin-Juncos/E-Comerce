@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import {  useNavigate, useParams} from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { leaveComment } from '../../Redux/actions';
-
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { leaveComment } from "../../Redux/actions";
 
 export default function CommentModal() {
-    const { id } = useParams();
-    
+  const { id } = useParams();
+
   const dispatch = useDispatch();
-  
-  const navigate = useNavigate()
-  
+
+  const navigate = useNavigate();
+
   const [text, setText] = useState("");
 
   const handleCommentChange = (e) => {
@@ -20,8 +19,7 @@ export default function CommentModal() {
   const handleSubmitComment = (e) => {
     e.preventDefault();
     dispatch(leaveComment(id, text));
-    //  redirigir a otra página después de dejar el comentario
-    navigate("/home")
+    navigate("/home");
   };
 
   return (
@@ -33,7 +31,7 @@ export default function CommentModal() {
           onChange={handleCommentChange}
           placeholder="Escribe tu comentario"
         />
-        <button type="submit" >Enviar comentario</button>
+        <button type="submit">Enviar comentario</button>
       </form>
     </div>
   );
