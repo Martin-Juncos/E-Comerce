@@ -6,19 +6,20 @@ import { leaveComment } from '../../Redux/actions';
 
 export default function CommentModal() {
     const { id } = useParams();
-    console.log(id)
+    
   const dispatch = useDispatch();
+  
   const navigate = useNavigate()
   
-  const [comment, setComment] = useState('');
+  const [text, setText] = useState("");
 
   const handleCommentChange = (e) => {
-    setComment(e.target.value);
+    setText(e.target.value);
   };
 
   const handleSubmitComment = (e) => {
     e.preventDefault();
-    dispatch(leaveComment(id, comment));
+    dispatch(leaveComment(id, text));
     //  redirigir a otra página después de dejar el comentario
     navigate("/home")
   };
@@ -28,7 +29,7 @@ export default function CommentModal() {
       <h2>Dejar un comentario</h2>
       <form onSubmit={handleSubmitComment}>
         <textarea
-          value={comment}
+          value={text}
           onChange={handleCommentChange}
           placeholder="Escribe tu comentario"
         />
