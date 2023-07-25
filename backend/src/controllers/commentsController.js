@@ -3,7 +3,7 @@ const { Comment } = require("../db/db.js");
 
 const getAllCommentsController = async () => {
     const response = await Comment.findAll()
-    return await response
+    return  response
 }
 const getCommentsByIdController = async (id) => {
     const data = await Comment.findByPk(id)
@@ -12,11 +12,13 @@ const getCommentsByIdController = async (id) => {
 
 
 
-const createCommentController = async (text) => {
-    const comments = await Comment.findOrCreate({
-        where: {text}
+const createCommentController = async (productId,text,createdAt) => {
+    const comment = await Comment.create({
+        productId,
+        text,
+        createdAt
     })
-    return comments
+    return comment
 }
 
 

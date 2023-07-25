@@ -14,9 +14,9 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from "react-router-dom";
 
 function NavBar() {
-  const { isAuthenticated } = useAuth0()
+  const { isAuthenticated, user } = useAuth0();
 
-
+  const isAdmin = isAuthenticated && user?.role === 'administrador';
 
   return (
     <div>
@@ -26,17 +26,39 @@ function NavBar() {
             <img src={smartech2} alt="img not found" width="300rem" />
           </Link>
         </div>
-        <div>
-          <Link className={style.a} to="/about">
-            <h3>Nosotros</h3>
-          </Link>
-        </div>
-        <div>
-          <Link className={style.a} to="/favorites" >
-            <h3>Favorites</h3>
-          </Link>
-
-        </div>
+        {isAdmin && (
+          <>
+            <div>
+              <Link className={style.a} to="/form">
+                <h3>Crear Producto</h3>
+              </Link>
+            </div>
+            <div>
+              <Link className={style.a} to="/products">
+                <h3>Productos</h3>
+              </Link>
+            </div>
+            <div>
+              <Link className={style.a} to="/comments">
+                <h3>Comentarios</h3>
+              </Link>
+            </div>
+          </>
+        )}
+        {!isAdmin && (
+          <>
+            <div>
+              <Link className={style.a} to="/about">
+                <h3>Nosotros</h3>
+              </Link>
+            </div>
+            <div>
+              <Link className={style.a} to="/favorites">
+                <h3>Favoritos</h3>
+              </Link>
+            </div>
+          </>
+        )}
         <div>
           <SearcBar />
         </div>
@@ -61,4 +83,3 @@ function NavBar() {
 }
 
 export default NavBar;
-

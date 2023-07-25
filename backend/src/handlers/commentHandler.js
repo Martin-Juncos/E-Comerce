@@ -5,10 +5,11 @@ const {
 } = require("../controllers/commentsController");
 
 const createCommentHandler = async (req, res) => {
-    const { text} = req.body
-//productId?
+    const {productId, text, createdAt} = req.body
+    
+
 try {
-    const result = await createCommentController(text)
+    const result = await createCommentController(productId,text,createdAt)
     res.status(201).json(result);
 } catch (error) {
     res.status(404).json({ error: error.message });

@@ -9,11 +9,11 @@ module.exports = (database) => {
     },
     productId: {
       type: DataTypes.UUID,
-      allowNull: false,
+      
     },
     text: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      
     },
     createdAt: {
       type: DataTypes.DATE,

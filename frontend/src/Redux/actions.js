@@ -57,16 +57,17 @@ export const deleteProduct = (id)=> {
   };
 }
 
-export const leaveComment = (id,comment) => {
-  return async function (dispatch){
-    
-      const response = await axios.post(`http://localhost:3001/comments/${id}`, { comment });
-      const updatedProduct =  response.data;
-      console.log(updatedProduct)
-      dispatch({type: LEAVE_COMMENT , payload: updatedProduct})
+
+
+export const leaveComment = (text) => {
+  return async function (dispatch) {
   
-  }
-}
+      const response = await axios.post(`http://localhost:3001/comments`,  {text} );
+      const updatedProduct = response.data
+      dispatch({ type: LEAVE_COMMENT, payload: updatedProduct });
+
+  };
+};
 
 // CATEGORY
 export const allCategories = () => {
