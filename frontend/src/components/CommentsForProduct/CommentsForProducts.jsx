@@ -17,7 +17,7 @@ export default function CommentsForProduct() {
     }, [dispatch, id]);
 
     if (!comments) {
-        return <div>Cargando comentarios...</div>; // Manejar el caso de comentarios nulos o indefinidos
+        return <>Cargando comentarios...</>; 
       }
   
     return (
@@ -26,6 +26,7 @@ export default function CommentsForProduct() {
         {comments.map((comment) => (
           <div key={comment.id}>
             <p>{comment.text}</p>
+          <p>{comment.createdAt}</p>
           </div>
         ))}
       </div>
