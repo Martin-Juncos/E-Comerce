@@ -4,10 +4,11 @@ var cors = require("cors");
 const mainRouter = require("./src/routes/mainRouter");
 const app = express();
 const mercadopago = require("mercadopago");
-
+const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const accessToken = process.env.ACCESS_TOKEN;
 
+const secretJWT= process.env.JWT_SECRET;
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
@@ -17,6 +18,16 @@ mercadopago.configure({
   access_token: accessToken,
 });
 
+app.post("/admin-login", (req, res) => {
+  const { email, password } = req.body;
+  const isAuthenticated = true;
+  if (isAuthenticated) {
+    const token = jwt.sign({ email, role: "admin" }, secretJWT, {
+      expiresIn: "1h",
+    });
+    res.json({ token });
+  }
+});
 
 app.post("/create_preference", (req, res) => {
   const products = req.body;
@@ -47,3 +58,4 @@ app.post("/create_preference", (req, res) => {
 });
 
 module.exports = app;
+
