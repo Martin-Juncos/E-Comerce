@@ -19,6 +19,11 @@
         picture: {
             type: DataTypes.STRING,
             //allowNull: false
+        },
+        role: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "user", // Por defecto, todos los usuarios tendrán el rol "user"
         }
     },{timestamps:false})
   }

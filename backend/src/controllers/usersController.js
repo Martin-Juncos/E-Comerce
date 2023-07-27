@@ -16,12 +16,12 @@ const getUserByIdController = async (id) => {
     const data = await User.findByPk(id)
     return data
 }
-const createUserController = async (name, gender, age, email, phone, adress, city, zipCode) => {
-    return await User.create({ name, gender, age, email, phone, adress, city, zipCode })
+const createUserController = async (name, email, picture,role  ) => {
+    return await User.create({name, email, picture,role  })
 }
-const updateUserController = async (id, { name, gender, age, email, phone, adress, city, zipCode }) => {
+const updateUserController = async (id, { name, email, picture,role   }) => {
     const user = await User.findByPk(id)
-    await user.update({ name, gender, age, email, phone, adress, city, zipCode })
+    await user.update({ name, email, picture,role  })
     return user
 }
 

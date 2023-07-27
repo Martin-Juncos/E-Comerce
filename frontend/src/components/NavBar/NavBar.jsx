@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./NavBar.module.css";
-//import smartech1 from '../../assets/SmarTech1.png'
 import smartech2 from "../../assets/SmarTech2.png";
 import SearcBar from "../SearchBar/SearcBar";
 import Filters from "../Filters/Filters";
@@ -15,9 +14,11 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   const { isAuthenticated, user } = useAuth0();
+  console.log(user, isAuthenticated)
+ 
 
-  const isAdmin = isAuthenticated && user?.role === 'administrador';
-
+  const isAdmin = isAuthenticated && user === 'admin';
+  
   return (
     <div>
       <section className={style.container}>
