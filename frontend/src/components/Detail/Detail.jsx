@@ -1,49 +1,100 @@
-import React, { useEffect } from 'react'
-import { useParams} from 'react-router-dom'
-import {useDispatch, useSelector} from 'react-redux'
-import { addToCart, getProductById } from '../../Redux/actions';
-import { useNavigate } from 'react-router-dom'
-function Detail() {
+// import React, { useEffect } from 'react'
+// import { useParams} from 'react-router-dom'
+// import {useDispatch, useSelector} from 'react-redux'
+// import { addToCart, getProductById } from '../../Redux/actions';
+// import { useNavigate } from 'react-router-dom'
+// function Detail() {
   
-  const navigate = useNavigate()
-    const { id } = useParams();
-    const dispatch = useDispatch()
-    const product = useSelector(state => state.product)
+//   const navigate = useNavigate()
+//     const { id } = useParams();
+//     const dispatch = useDispatch()
+//     const product = useSelector(state => state.product)
     
 
-    useEffect(() => {
-      dispatch(getProductById(id))
-    }, [dispatch, id])
-    const handlerAddProduct = (e) => {
-      e.preventDefault()
-      dispatch(addToCart(id))
-    }
+//     useEffect(() => {
+//       dispatch(getProductById(id))
+//     }, [dispatch, id])
+//     const handlerAddProduct = (e) => {
+//       e.preventDefault()
+//       dispatch(addToCart(id))
+//     }
 
-   const handleLeaveComment = () => {
-   navigate(`/products/${id}/comment`)
-  }
+//    const handleLeaveComment = () => {
+//    navigate(`/products/${id}/comment`)
+//   }
+
+//   const handleViewComments = () => {
+//     navigate(`/products/${id}/comments`); // Redirige a la página de comentarios
+//   };
+
+//   return (
+//     <div>
+//       <div>
+//         <img src={product.thumbnail} alt="Img not Found" />
+//         <h2>{product.title}</h2>
+//         <h3>{product.brand}</h3>
+//         <h6>{product.rating}</h6>
+//         <h6>{product.description}</h6>
+//         <h1>u$d {product.price}</h1>
+//         </div>
+//         <div>
+//           <button onClick={handlerAddProduct}>Agregar al carrito</button>
+//           <button onClick={handleLeaveComment} >Dejanos tu comentario !</button>
+//           <button onClick={handleViewComments}>Ver comentarios</button>
+//         </div>
+//     </div>
+//   )
+// }
+
+// export default Detail
+
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, getProductById } from '../../Redux/actions';
+import { useNavigate } from 'react-router-dom';
+import styles from './Detail.module.css';
+
+function Detail() {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.product);
+
+  useEffect(() => {
+    dispatch(getProductById(id));
+  }, [dispatch, id]);
+
+  const handlerAddProduct = (e) => {
+    e.preventDefault();
+    dispatch(addToCart(id));
+  };
+
+  const handleLeaveComment = () => {
+    navigate(`/products/${id}/comment`);
+  };
 
   const handleViewComments = () => {
-    navigate(`/products/${id}/comments`); // Redirige a la página de comentarios
+    navigate(`/products/${id}/comments`);
   };
 
   return (
-    <div>
-      <div>
-        <img src={product.thumbnail} alt="Img not Found" />
-        <h2>{product.title}</h2>
-        <h3>{product.brand}</h3>
-        <h6>{product.rating}</h6>
-        <h6>{product.description}</h6>
-        <h1>u$d {product.price}</h1>
-        </div>
-        <div>
-          <button onClick={handlerAddProduct}>Agregar al carrito</button>
-          <button onClick={handleLeaveComment} >Dejanos tu comentario !</button>
-          <button onClick={handleViewComments}>Ver comentarios</button>
-        </div>
+    <div className={styles.container}>
+      <div className={styles.productdetails}>
+        <img className={styles.productimage} src={product.thumbnail} alt="Img not Found" />
+        <h2 className={styles.producttitle}>{product.title}</h2>
+        <h3 className={styles.productbrand}>{product.brand}</h3>
+        <h6 className={styles.productrating}>{product.rating}</h6>
+        <h6 className={styles.productdescription}>{product.description}</h6>
+        <h1 className={styles.productprice}>u$d {product.price}</h1>
+      </div>
+      <div className={styles.productbuttons}>
+        <button onClick={handlerAddProduct}>Agregar al carrito</button>
+        <button onClick={handleLeaveComment}>Dejanos tu comentario !</button>
+        <button onClick={handleViewComments}>Ver comentarios</button>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Detail
+export default Detail;
