@@ -1,6 +1,33 @@
 .container {
     display: flex;
-}
-.order{
+    align-items: center;
+    justify-content: space-between;
     padding: 1rem;
-}
+    border-bottom: 1px solid #ccc;
+    background-color: #f8f8f8;
+  }
+  
+  .order {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  select {
+    padding: 0.3rem 1rem;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  /*  espacio entre los filtros */
+  .order + .order {
+    margin-left: 1rem;
+  }

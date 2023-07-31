@@ -1,14 +1,11 @@
-
-
-/* falta resolver el tema de la separacion entre cards */
-
-  /* Estilos base */
 .cardcontainer {
   display: grid;
   justify-content: center;
-  align-items: flex-start;
-  grid-template-columns: repeat();
-  margin-top: 30px;
+  align-items: center;
+  grid-template-columns: repeat(2, minmax(200px, 1fr)); 
+  margin-top: 20px;
+  margin-left: 15%; 
+  margin-right: auto; 
 }
 
 .loadingcontainer {
@@ -23,24 +20,20 @@
   font-size: 16px;
 }
 
-
 @media (max-width: 768px) {
   .cardcontainer {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /*  ancho mínimo de las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
 @media (max-width: 576px) {
   .cardcontainer {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /*  ancho mínimo de las tarjetas */
-    gap: 10px; /*  espacio entre tarjetas */
-    margin-top: 20px; /* margen superior */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .loadingcontainer {
-    height: 200px; /*  altura del contenedor de carga */
+    height: 200px;
   }
 }
-
-
-

@@ -1,8 +1,8 @@
 import style from "./Paginado.module.css";
 
 export default function Paginado({
- productPerPage,
- productsAll,
+  productPerPage,
+  productsAll,
   setCurrentPage,
 }) {
   const totalPages = Math.ceil(productsAll / productPerPage);

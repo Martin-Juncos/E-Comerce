@@ -1,15 +1,17 @@
 .boton {
-    height: 40px;
-    width: 100px;
-    border-radius: 10px;
-    border: none;
-    background-color: rgb(229, 66, 66);
-    color: rgb(41, 39, 39);
-    font-size: 20px;
-    margin: 10px;
-  }
-  .boton:hover {
-    color: rgb(229, 66, 66);
-    background-color: rgb(233, 215, 215);
-    cursor: pointer;
-  }
+  height: 40px;
+  width: 120px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(229, 66, 66);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: rgb(204, 0, 0);
+}
