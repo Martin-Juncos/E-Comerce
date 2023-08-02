@@ -1,3 +1,21 @@
+/* .boton {
+  height: 40px;
+  width: 150px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(88, 88, 233);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: rgb(66, 66, 188);
+} */
+
 .boton {
   height: 40px;
   width: 150px;
