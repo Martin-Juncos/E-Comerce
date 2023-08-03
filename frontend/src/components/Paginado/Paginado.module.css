@@ -1,11 +1,13 @@
-.container {
+
+
+  .container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
   }
   
-  button {
+  .pagebutton {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -17,6 +19,16 @@
     transition: background-color 0.3s ease;
   }
   
-  button:hover {
+  .pagebutton:hover {
     background-color: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-wrap: wrap;
+    }
+  
+    .pagebutton {
+      margin: 5px 2px;
+    }
   }
