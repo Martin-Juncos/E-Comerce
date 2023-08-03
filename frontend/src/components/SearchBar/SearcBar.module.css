@@ -65,12 +65,12 @@ form {
   }
 
   .input {
-    margin-right: 0; /* Eliminar el margen derecho en pantallas pequeñas */
-    margin-bottom: 10px; /* Espaciado inferior en pantallas pequeñas */
+    margin-right: 0; 
+    margin-bottom: 10px; /
   }
 
   .searchBtn,
   .allBtn {
-    width: 100%; /* Hacer que los botones ocupen todo el ancho en pantallas pequeñas */
+    width: 100%; 
   }
 }
