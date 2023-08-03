@@ -38,20 +38,30 @@ function SearcBar() {
     )
 }
 
-  return (
-    <div className={style.container}>
-            <form >
-                <input type="text" value={input} onChange={handlerInputChange} />
-                {
-                    flag ?
-                        <button onClick={handleSubmit} type="submit">Buscar</button> :
-                        <button onClick={handlerSubmitAll} >Traer todos!</button>
-                }
-
-
-            </form>
-        </div>
-  )
+return (
+  <div className={style.container}>
+    <form>
+      <input
+        type="text"
+        value={input}
+        onChange={handlerInputChange}
+        className={style.input}
+      />
+      {flag ? (
+        <button onClick={handleSubmit} type="submit" className={style.searchBtn}>
+          Buscar
+        </button>
+      ) : (
+        <button onClick={handlerSubmitAll} className={style.allBtn}>
+          Traer todos!
+        </button>
+      )}
+    </form>
+  </div>
+);
 }
 
 export default SearcBar
+
+
+//Preguntar a Gonzalo q onda

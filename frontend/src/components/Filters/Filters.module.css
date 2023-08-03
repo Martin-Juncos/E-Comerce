@@ -2,9 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 1.5rem;
     border-bottom: 1px solid #ccc;
-    background-color: #f8f8f8;
+    background-color: #d1cfcf;
   }
   
   .filter {
@@ -16,6 +16,10 @@
   label {
     font-weight: bold;
     margin-right: 0.5rem;
+    color: #555; 
+    font-size: 16px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
   }
   
   select {

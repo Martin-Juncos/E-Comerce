@@ -60,9 +60,9 @@ function NavBar() {
             </div>
           </>
         )}
-        <div>
+        <section>
           <SearcBar />
-        </div>
+        </section>
         <div>
           {isAuthenticated ? (
             <>

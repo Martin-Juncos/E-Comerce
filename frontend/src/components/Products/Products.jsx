@@ -24,13 +24,13 @@ function Products() {
       {products.map((prod) => (
         <div key={prod.id} className={styles.product}>
           <h2>{prod.title}</h2>
-          <h4>{prod.description}</h4>
-          <h4>${prod.price}</h4>
-          <h4>{prod.discountPercentage}</h4>
-          <h4>{prod.rating}</h4>
-          <h4>{prod.stock}</h4>
-          <h4>{prod.brand}</h4>
-          <h4>{prod.category}</h4>
+          <h4> Descripcion: {prod.description}</h4>
+          <h4>Precio: ${prod.price}</h4>
+          <h4>Porcent. de Desc. :{prod.discountPercentage}%</h4>
+          <h4>Calificacion: {prod.rating}</h4>
+          <h4>Stock: {prod.stock}</h4>
+          <h4>Marca: {prod.brand}</h4>
+          <h4>Categoria: {prod.category}</h4>
           <Link to={`../updateproduct/${prod.id}`}>
             <button className={`${styles.updatebtn}`}>🔄</button>
           </Link>
@@ -47,3 +47,5 @@ function Products() {
 }
 
 export default Products;
+
+

@@ -78,3 +78,11 @@
   .imageInput button:hover {
     background-color: #0056b3;
   }
+
+  /* Media Query para hacerlo responsive */
+@media (max-width: 768px) {
+  .formContainer {
+    max-width: 400px; /* Ajustar el ancho máximo en pantallas pequeñas */
+    width: 100%;
+  }
+}

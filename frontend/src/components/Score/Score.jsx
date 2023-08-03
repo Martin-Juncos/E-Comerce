@@ -5,7 +5,7 @@ import {
   faStarHalfStroke,
   faStar as faStarWhite,
 } from "@fortawesome/free-regular-svg-icons";
-
+    import styles from './Score.Module.css';
 function Score(props) {
   const { rating } = props;
   const rankingNumber = parseFloat(rating);
@@ -23,7 +23,7 @@ function Score(props) {
     }
   }
   return (
-    <div>
+    <div className={styles["scorecontainer"]}>
       {stars.map((star, index) => (
         <span key={index}>{star}</span>
       ))}

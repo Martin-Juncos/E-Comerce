@@ -1,4 +1,5 @@
-import style from "./Paginado.module.css";
+import React from 'react';
+import styles from './Paginado.module.css'; // Importar los estilos
 
 export default function Paginado({
   productPerPage,
@@ -14,10 +15,14 @@ export default function Paginado({
   }
 
   return (
-    <div className={style.container}>
+    <div className={styles.container}>
       {pageNumber &&
         pageNumber.map((num) => (
-          <button key={num} onClick={() => setCurrentPage(num)}>
+          <button
+            key={num}
+            onClick={() => setCurrentPage(num)}
+            className={styles.pagebutton} // Añadir el classname para el botón de página
+          >
             {num}
           </button>
         ))}
