@@ -40,7 +40,7 @@ function SearcBar() {
 
 return (
   <div className={style.container}>
-    <form>
+    <form >
       <input
         type="text"
         value={input}

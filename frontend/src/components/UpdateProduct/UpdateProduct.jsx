@@ -68,6 +68,7 @@ function UpdateProduct() {
           name="title"
           value={producto.title}
           onChange={handleChange}
+          className='input'
         />
 
         <label htmlFor="description">Descripción</label>
@@ -135,21 +136,10 @@ function UpdateProduct() {
 
         {/* Agregar campos de formulario para las imágenes */}
 
-        <button type="submit" className={styles.submitButton}>Guardar</button> {/* Aplicar el estilo del botón de guardar */}
+        <button type="submit" className={styles.submitButton}>Guardar</button> 
       </form>
     </div>
   );
 }
 
 export default UpdateProduct;
-
-
-
-//                     Lo primero seria controlar los input de los formularios    
-
-// Completamos todos los estados / completamos los inputs / Desp del Submit, (luego del put) un alert, con todos los datos que hemos actualizado [una ventana con datitos]
-  //           >Ir a home<          (boton)           
-//
-
-
-//ventada (modelo de card con el prod o uno nuevo)  errerer

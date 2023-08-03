@@ -1,18 +1,20 @@
 
  .container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 10px;
+   margin-top: 20px ;
 }
 
 form {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   background-color: #fff;
-  border-radius: 20px;
-  padding: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  padding: 0px 0px 0px 0px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  margin-top: -9px;
 }
 
 .input {
@@ -21,18 +23,21 @@ form {
   background-color: transparent;
   font-size: 16px;
   margin-right: 8px;
+  margin-top: -20px;
 }
 
 .searchBtn {
   cursor: pointer;
   background-color: #fca311; /* Color del botón de búsqueda */
-  color: white;
+  color: #fff;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 50px;
   border: none;
   border-radius: 20px; /* Hacer el botón redondo */
-  padding: 10px 20px; /* Ajustar el padding para hacerlo más grande */
+  padding: 16px 15px 15px 5px; /* Ajustar el padding para hacerlo más grande */
   transition: background-color 0.3s ease;
+  border-top-left-radius: 0px 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .allBtn {
@@ -49,7 +54,7 @@ form {
 
 .searchBtn:hover,
 .allBtn:hover {
-  background-color: #e07a5f; /* Color al pasar el ratón por encima de los botones */
+  background-color: #9ab1a4; /* Color al pasar el ratón por encima de los botones */
 }
 
 /* Media Query para hacerlo responsive */
@@ -74,3 +79,54 @@ form {
     width: 100%; /* Hacer que los botones ocupen todo el ancho en pantallas pequeñas */
   }
 }
+
+
+
+
+
+
+
+
+
+/* .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 8px; 
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  margin-top: -9px;
+}
+
+.input {
+  flex: 1; 
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.searchBtn {
+  cursor: pointer;
+  background-color: #fca311;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px; 
+  transition: background-color 0.3s ease;
+  margin-left: -15px; 
+} */
+
+
+/* sugerencia para aplicar a esos campos */
