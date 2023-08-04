@@ -1,4 +1,130 @@
-.tables{
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos del componente ShoppingCart */
+  .shoppingCartContainer {
+    margin: 30px;
+  }
+  
+  .clearCartButton {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    
+  }
+  
+  .clearCartButton:hover {
+    background-color: #c0392b;
+  }
+  
+  .tables {
     display: flex;
     justify-content: space-around;
-}
+    margin-top: 20px;
+  }
+  
+  .productTable {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .productTable th,
+  .productTable td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+  }
+  
+  .productTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .productTable td {
+    font-size: 16px;
+  }
+  
+  .productTable button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 8px;
+  }
+  
+  .productTable button:hover {
+    color: #e74c3c;
+  }
+  
+  .totalTable {
+    width: 100%;
+  }
+  
+  .totalTable td {
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .linkButton {
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .linkButton button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  .linkButton button:hover {
+    background-color: #45a049;
+  }
+  
+  .paymentButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  
+  .paymentButton:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media Queries */
+  
+  /* Pantallas más pequeñas como tablets y móviles */
+  @media (max-width: 768px) {
+    .tables {
+      flex-direction: column;
+    }
+  
+    .productTable {
+      width: 100%;
+    }
+  
+    .totalTable {
+      width: 100%;
+    }
+  }
+  

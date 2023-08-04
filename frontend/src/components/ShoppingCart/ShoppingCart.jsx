@@ -46,13 +46,15 @@ function ShoppingCart() {
   };
 
   return (
-    <div>
+    <div className={style.shoppingCartContainer}>
       <div>
-        <button onClick={handlerClearCart}>Limpiar el carrito</button>
+        <button className={style.clearCartButton} onClick={handlerClearCart}>
+          Limpiar el carrito
+        </button>
       </div>
       <div className={style.tables}>
         <div>
-          <table>
+          <table className={style.productTable}>
             <thead>
               <tr>
                 <th>Producto</th>
@@ -84,7 +86,7 @@ function ShoppingCart() {
           </table>
         </div>
         <div>
-          <table>
+          <table className={style.totalTable}>
             <thead>
               <tr>
                 <th>Total</th>
@@ -92,15 +94,17 @@ function ShoppingCart() {
             </thead>
             <tbody>
               <tr>
-                <td>{totalSale}</td>
+                <td>$ {totalSale}</td>
               </tr>
             </tbody>
           </table>
-                <button onClick={handlerBuy}>Pagar</button>
-                {preferenceId && <Wallet initialization={{ preferenceId }} />}
+          <button className={style.paymentButton} onClick={handlerBuy}>
+            Pagar
+          </button>
+          {preferenceId && <Wallet initialization={{ preferenceId }} />}
         </div>
       </div>
-      <Link to="/home">
+      <Link to="/home" className={style.linkButton}>
         <button>Seguir Comprando</button>
       </Link>
     </div>
