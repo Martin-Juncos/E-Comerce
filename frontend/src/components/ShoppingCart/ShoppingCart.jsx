@@ -73,10 +73,10 @@ function ShoppingCart() {
                     <td>$ {prod.price * prod.quantity}</td>
                     <td>
                       <button onClick={() => handlerDelete(prod.id)}>
-                        ❌ 1
+                      ❌ 
                       </button>
                       <button onClick={() => handlerDelete(prod.id, true)}>
-                        ❌ All
+                        Eliminar todos! ❌ 
                       </button>
                     </td>
                   </tr>
