@@ -26,12 +26,20 @@
     padding: 0.3rem 1rem;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 25px;
     outline: none;
     cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   }
   
   /*  espacio entre los filtros */
   .order + .order {
     margin-left: 1rem;
   }
+
+
+  @media (max-width: 768px) {
+  .order {
+    align-items: center; /* Centramos los elementos en dispositivos móviles */
+  }
+}

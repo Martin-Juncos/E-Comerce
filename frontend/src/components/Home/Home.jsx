@@ -1,13 +1,47 @@
-import React, { useEffect } from 'react'
-import Carrusel from '../Carrusel/Carrusel'
-import banner from '../../assets/banner.png'
-import CardsContainer from '../CardsContainer/CardsContainer'
-import Footer from '../Footer/Footer'
+// import React, { useEffect } from 'react'
+// import Carrusel from '../Carrusel/Carrusel'
+// import banner from '../../assets/banner.png'
+// import CardsContainer from '../CardsContainer/CardsContainer'
+// import Footer from '../Footer/Footer'
+// import { useDispatch } from "react-redux";
+// import { allCategories, allProdCart, allProducts } from '../../Redux/actions'
+
+
+
+
+// const Home = () => {
+//   const dispatch = useDispatch();
+
+//   useEffect(() => {
+//     dispatch(allProducts());
+//     dispatch(allCategories());
+//     dispatch(allProdCart())
+//   }, [dispatch]);
+
+
+//   return (
+//     <div>
+      
+        
+//         <Carrusel/> 
+//         <CardsContainer/>
+//         <img src={banner} alt="banner" width='80%' style={{paddingTop: 20}}/>
+//         <Footer/>
+//     </div>
+//   )
+// }
+
+// export default Home
+
+
+import React, { useEffect } from 'react';
+import Carrusel from '../Carrusel/Carrusel';
+import banner from '../../assets/banner.png';
+import CardsContainer from '../CardsContainer/CardsContainer';
+import Footer from '../Footer/Footer';
 import { useDispatch } from "react-redux";
-import { allCategories, allProdCart, allProducts } from '../../Redux/actions'
-
-
-
+import { allCategories, allProdCart, allProducts } from '../../Redux/actions';
+import styles from './Home.module.css'; // Importa los estilos CSS
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -15,23 +49,17 @@ const Home = () => {
   useEffect(() => {
     dispatch(allProducts());
     dispatch(allCategories());
-    dispatch(allProdCart())
+    dispatch(allProdCart());
   }, [dispatch]);
 
-
   return (
-    <div>
-      
-        
-        <Carrusel/> 
-        <CardsContainer/>
-        <img src={banner} alt="banner" width='80%' style={{paddingTop: 20}}/>
-        <Footer/>
+    <div className={styles.homeContainer}>
+      <Carrusel />
+      <CardsContainer />
+      <img src={banner} alt="banner" className={styles.bannerImage} />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default Home
-
-
-//aca traje NavBar, no estoy muy seguro
+export default Home;
