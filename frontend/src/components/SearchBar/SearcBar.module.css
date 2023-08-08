@@ -62,20 +62,22 @@ form {
 /* Media Query para hacerlo responsive */
 @media (max-width: 768px) {
   .container {
-    justify-content: ce; 
+    justify-content: center; 
     margin: 10px; 
   }
 
   form {
-    flex-direction: column; 
+    flex-direction: row; 
     align-items: center;
+    justify-content: center;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
   }
 
   
 
   .searchBtn,
   .allBtn {
-    margin-left: 150px ;
+    margin-left: 10px ;
     width: 33%; 
   }
 }

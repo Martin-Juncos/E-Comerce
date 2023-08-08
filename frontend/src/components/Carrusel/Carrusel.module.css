@@ -4,9 +4,10 @@
     height: 60vh;
     margin: 10px auto;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1.0);
     border-radius: 25px;
     background-color: #e2dfdf;
+    border: 0.1rem solid rgb(255, 255, 255)
   }
   
   .slider ul {

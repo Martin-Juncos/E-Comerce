@@ -15,6 +15,7 @@ import Products from "./components/Products/Products";
 import CommentModal from "./components/CommentModal/CommentModal";
 import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 import CommentsForProduct from "./components/CommentsForProduct/CommentsForProducts";
+import fondoImagen from "./assets/fondos/fondo2.png"
 //import LandingPage from './components/LandingPage/LandingPage';
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundImage: `url(${fondoImagen})`}}>
       <NavBar />
       <Routes>
         {/* <Route exact path='/' element= {<LandingPage/> } /> */}

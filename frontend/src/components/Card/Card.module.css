@@ -13,6 +13,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  border: 0.2rem solid #333
 }
 
 .block img {
@@ -54,7 +55,7 @@
 .buttons button {
   background-color: transparent;
   color: #fff;
-  border: 1.5px solid #888;
+  border: 0.2rem solid #333;
   border-radius: 12px;
   padding: 8px 15px;
   font-size: 16px;
@@ -93,7 +94,7 @@
 @media (max-width: 768px) {
   .block {
     width: 80%; 
-    height: auto; 
+    height: 350px; 
     margin: 20px; 
   }
 

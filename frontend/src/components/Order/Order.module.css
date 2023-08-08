@@ -40,6 +40,6 @@
 
   @media (max-width: 768px) {
   .order {
-    align-items: center; /* Centramos los elementos en dispositivos móviles */
+    align-items: column; /* Centramos los elementos en dispositivos móviles */
   }
 }
