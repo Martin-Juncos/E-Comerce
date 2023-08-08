@@ -1,19 +1,17 @@
 .container {
-    display: flex;
+  display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem;
-    border-bottom: 1px solid #ccc;
-    background-color: #d1cfcf;
+    justify-content: space-around;
+    background-color: transparent;
   }
   
   .filter {
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    justify-content: space-evenly;
   }
   
-  label {
+  .labelFilter {
     font-weight: bold;
     margin-right: 0.5rem;
     color: #555; 
@@ -22,7 +20,7 @@
     letter-spacing: 1px; 
   }
   
-  select {
+  .selectFilter {
     padding: 0.3rem 1rem;
     font-size: 16px;
     border: 1px solid #ccc;

@@ -26,7 +26,7 @@ function Filters() {
   return (
     <div className={style.container}>
       <div className={style.filter}>
-        <label htmlFor="category">Categoria </label>
+        <label className={style.labelFilter}  htmlFor="category">Categoria </label>
         <select name="category" id="category" onChange={(e)=>handleCategoryChange(e.target.value)}>
           <option value="all">All</option>
           { categories.map((categorie)=> (

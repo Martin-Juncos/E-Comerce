@@ -17,8 +17,8 @@ function Order() {
   return (
     <div className={style.container} >
         <div className={style.order}>
-        <label htmlFor="price">Precio </label>
-        <select name="price" id="price"  onChange={(e) => handlePriceChange(e.target.value)}>
+        <label className={style.labelOrder} htmlFor="price">Precio </label>
+        <select  name="price" id="price"  onChange={(e) => handlePriceChange(e.target.value)}>
             <option value="mayor">Mayor</option>
             <option value="menor">Menor</option>
         </select>
