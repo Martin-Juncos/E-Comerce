@@ -1,42 +1,38 @@
 .container {
   display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: transparent;
-  }
-  
-  .filter {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  
-  .labelFilter {
-    font-weight: bold;
-    margin-right: 0.5rem;
-    color: #555; 
-    font-size: 16px; 
-    text-transform: uppercase; 
-    letter-spacing: 1px; 
-  }
-  
-  .selectFilter {
-    padding: 0.3rem 1rem;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  /* Estilos para el espacio entre los filtros */
-  .filter + .filter {
-    margin-left: 1rem;
-  }
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: transparent;
+}
 
-  
-  @media (max-width: 768px) {
-    .filter {
-      width: 100%; /* Centramos los elementos en dispositivos móviles */
-    }
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+ 
+}
+
+.filter label {
+  font-weight: bold;
+  color: #555;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.filter select {
+  padding: 0.3rem 1rem;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .filter {
+    width: 100%;
   }
+}

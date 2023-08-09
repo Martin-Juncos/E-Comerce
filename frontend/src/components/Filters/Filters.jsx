@@ -4,15 +4,12 @@ import { filterCategory, orderProductByBrand } from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 function Filters() {
-
   const dispatch = useDispatch();
-  
-  const categories = useSelector((state) => state.allCategories);
 
-  const products = useSelector((state) => state.allProductsCopy)
-  // Paso 1: Eliminar duplicados usando un Set
-  const marcasUnicas = new Set(products.map(producto => producto.brand));
-  // Paso 2: Convertir el Set nuevamente a un array para obtener el resultado deseado
+  const categories = useSelector((state) => state.allCategories);
+  const products = useSelector((state) => state.allProductsCopy);
+
+  const marcasUnicas = new Set(products.map((producto) => producto.brand));
   const marcasSinRepetir = Array.from(marcasUnicas);
 
   const handleCategoryChange = (catName) => {
@@ -20,16 +17,23 @@ function Filters() {
   };
 
   const handleBrandChange = (selectedBrand) => {
-    dispatch(orderProductByBrand(selectedBrand))
-  }
+    dispatch(orderProductByBrand(selectedBrand));
+  };
 
   return (
     <div className={style.container}>
       <div className={style.filter}>
-        <label className={style.labelFilter}  htmlFor="category">Categoria </label>
-        <select name="category" id="category" onChange={(e)=>handleCategoryChange(e.target.value)}>
+        <label  htmlFor="category">
+          Categoria
+        </label>
+        <select
+          className={style.selectFilter} // Aplicar estilo al select
+          name="category"
+          id="category"
+          onChange={(e) => handleCategoryChange(e.target.value)}
+        >
           <option value="all">All</option>
-          { categories.map((categorie)=> (
+          {categories.map((categorie) => (
             <option value={categorie.name} key={categorie.id}>
               {categorie.name}
             </option>
@@ -37,12 +41,19 @@ function Filters() {
         </select>
       </div>
       <div className={style.filter}>
-        <label htmlFor="brand">Marca </label>
-        <select name="brand" id="brand" onChange={(e)=> handleBrandChange(e.target.value)}>
+        <label htmlFor="brand">Marca</label>
+        <select
+          className={style.selectFilter}
+          name="brand"
+          id="brand"
+          onChange={(e) => handleBrandChange(e.target.value)}
+        >
           <option value="All">All</option>
-          { marcasSinRepetir.map((brand, index) => (
-            <option value={brand}  key={index}>{brand}</option>
-          )) }
+          {marcasSinRepetir.map((brand, index) => (
+            <option value={brand} key={index}>
+              {brand}
+            </option>
+          ))}
         </select>
       </div>
     </div>
@@ -50,4 +61,3 @@ function Filters() {
 }
 
 export default Filters;
-
