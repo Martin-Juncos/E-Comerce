@@ -1,16 +1,16 @@
 .container {
   display: flex;
-  justify-content: space-evenly; /* Cambiado a 'space-between' para distribuir elementos en ambos extremos */
+  justify-content: space-evenly; 
   align-items: center;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1);
   background-color: antiquewhite;
+  padding-bottom: 6px;
 }
 
 .a {
   border-bottom: 0.1rem solid;
   text-decoration: none;
- 
-  font-size: 18px; /* Reducido el tamaño de fuente para ocupar menos espacio */
+  font-size: 18px; 
   font-weight: bold;
   color: #7809fd;
   cursor: pointer;
@@ -21,17 +21,17 @@
 }
 
 .logo {
-  width: 120px; /* Reducido el tamaño del logo para ahorrar espacio */
+  width: 120px; 
   height: auto;
 }
 
 .nav-links h3 {
-  font-size: 18px; /* Reducido el tamaño de fuente para ocupar menos espacio */
+  font-size: 18px; 
   font-weight: 500;
 }
 
 .profile-container img {
-  width: 25px; /* Reducido el tamaño de la imagen del perfil */
+  width: 25px; 
   height: 25px;
   border-radius: 50%;
 }

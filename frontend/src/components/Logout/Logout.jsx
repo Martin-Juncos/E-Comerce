@@ -12,7 +12,7 @@ export const Logout = () => {
     
     return (
         <button className={styles.boton} onClick={handleLogout}>
-        Logout
+        🚶
       </button>
     )
 }

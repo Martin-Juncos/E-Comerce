@@ -1,10 +1,8 @@
 .profile {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 5px;
-    padding: 10px;
     background-color: transparent;
-    border-radius: 8px;
   }
   
   .profile img {
@@ -15,26 +13,26 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   }
   
-  .profile p {
+  /* .profile p {
     font-size: 15px;
     font-weight: 500;
     color: #333;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
-  }
+  } */
 
   @media (max-width: 768px) {
     .profile {
       justify-content: center; /* Centrar el contenido en pantallas pequeñas */
-      gap: 5px; /* Espaciado más pequeño entre los elementos */
+      gap: 5px; 
     }
   
     .profile img {
-      width: 40px; /* Tamaño de imagen más pequeño en pantallas pequeñas */
+      width: 40px; 
       height: 40px;
     }
   
     .profile p {
-      font-size: 16px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+      font-size: 16px; 
     }
   }

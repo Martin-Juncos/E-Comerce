@@ -1,15 +1,14 @@
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 4rem;
   background-color: transparent;
 }
 
 .order {
   display: flex;
-  align-items: center;
-  
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 .order label {
@@ -21,6 +20,7 @@
 }
 
 .order select {
+  margin-right: 10px;
   padding: 0.3rem 1rem;
   font-size: 16px;
   border: 1px solid #ccc;

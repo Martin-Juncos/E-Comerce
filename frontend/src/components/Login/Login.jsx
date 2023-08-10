@@ -10,6 +10,6 @@ export const Login = () => {
 
 
     return(
-        <button className={styles.boton} onClick={() => loginWithRedirect()}>Login</button>
+        <button className={styles.boton} onClick={() => loginWithRedirect()}>Ingresar! 🚪</button>
     )
 }

@@ -64,6 +64,13 @@ function NavBar() {
           <SearcBar />
         </div>
         <div>
+        <Cart/>
+        </div>
+      </section>
+      <section className={style.container}>
+        <Filters />
+        <Order />
+        <div className={style.container}>
           {isAuthenticated ? (
             <>
               <Profile />
@@ -73,11 +80,6 @@ function NavBar() {
             <Login />
           )}
         </div>
-      </section>
-      <section className={style.container}>
-        <Filters />
-        <Order />
-        <Cart/>
       </section>
     </div>
   );
