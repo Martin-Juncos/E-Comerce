@@ -2,10 +2,9 @@
   display: flex;
   justify-content: space-evenly; 
   align-items: center;
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1);
   background-color: antiquewhite;
-  padding-bottom: 6px;
 }
+
 
 .a {
   border-bottom: 0.1rem solid;
@@ -30,7 +29,7 @@
   font-weight: 500;
 }
 
-.profile-container img {
+.profileContainer img {
   width: 25px; 
   height: 25px;
   border-radius: 50%;

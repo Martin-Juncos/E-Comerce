@@ -60,10 +60,10 @@ function NavBar() {
             </div>
           </>
         )}
-        <div >
-          <SearcBar />
+        <div className={style.container}>
+          <SearcBar  />
         </div>
-        <div>
+        <div className={style.container}>
         <Cart/>
         </div>
       </section>

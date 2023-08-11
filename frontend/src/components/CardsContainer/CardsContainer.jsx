@@ -18,13 +18,6 @@ function CardsContainer() {
 
   return (
     <div>
-      <div className="pagination">
-        <Paginado
-          productPerPage={productPerPage}
-          productsAll={products.length}
-          setCurrentPage={setCurrentPage}
-        />
-      </div>
       {!loadingState ? (
         <div className={style.loadingcontainer}>
           <span className={style.loadingtext}></span>
@@ -47,7 +40,15 @@ function CardsContainer() {
           })}
         </div>
       )}
+      <div className="pagination">
+        <Paginado
+          productPerPage={productPerPage}
+          productsAll={products.length}
+          setCurrentPage={setCurrentPage}
+        />
+      </div>
     </div>
+    
   );
 }
 

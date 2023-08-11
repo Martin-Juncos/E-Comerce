@@ -4,8 +4,7 @@
   margin: 20px;
   width: 250px;
   height: 370px;
-  padding: 15px;
-  background: rgb(180,179,179);
+  padding: 10px;
 background: linear-gradient(180deg, rgba(180,179,179,1) 0%, rgba(91,91,94,1) 98%, rgba(91,91,94,1) 100%);
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -13,7 +12,7 @@ background: linear-gradient(180deg, rgba(180,179,179,1) 0%, rgba(91,91,94,1) 98%
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  border: 0.2rem solid #333
+  border: 0.1rem solid #333
 }
 
 .block img {
@@ -21,7 +20,7 @@ background: linear-gradient(180deg, rgba(180,179,179,1) 0%, rgba(91,91,94,1) 98%
   height: 150px;
   border-radius: 15px;
   object-fit: cover;
-  border: 1cap solid #fff;
+  
 }
 
 .neon {
@@ -55,7 +54,7 @@ background: linear-gradient(180deg, rgba(180,179,179,1) 0%, rgba(91,91,94,1) 98%
 .buttons button {
   background-color: transparent;
   color: #fff;
-  border: 0.2rem solid #333;
+  border: 0.1rem solid #333;
   border-radius: 12px;
   padding: 8px 15px;
   font-size: 16px;
