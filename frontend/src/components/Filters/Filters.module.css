@@ -1,4 +1,5 @@
 .container {
+  padding-bottom: 6px;
   display: flex;
   align-items: flex-start;
   background-color: transparent;

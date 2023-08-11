@@ -19,8 +19,8 @@ const Home = () => {
 
   return (
     <div className={styles.homeContainer}>
-      <Carrusel />
       <CardsContainer />
+      <Carrusel />
       <img src={banner} alt="banner" className={styles.bannerImage} />
       <Footer />
     </div>
