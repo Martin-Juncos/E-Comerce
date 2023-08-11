@@ -42,10 +42,10 @@ const getUserHandler = async (req, res) => {
   }
   const updateUserHandler = async (req,res) => {
     const {id} = req.params;
-    const { name, gender , age , email , phone, adress, city, zipCode } = req.body
+    const { name , email , picture, role} = req.body
     
     try {
-      const result = (await updateUserController(id, { name, gender , age , email , phone, adress, city, zipCode}))
+      const result = (await updateUserController(id, { name, email , picture, role}))
       res.status(200).json(result)
     } catch (error) {
       res.status(404).json({error: error.message});

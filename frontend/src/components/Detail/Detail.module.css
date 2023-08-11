@@ -5,16 +5,18 @@
     flex-direction: column;
     align-items: center;
     margin: 20px;
+
   }
   
   .productdetails {
+    
     max-width: 400px;
     width: 100%;
     padding: 20px;
-    border: 1px solid #ccc;
-   background-color: #d1cfcf;
+    border: 0.1rem solid #333;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+    border-radius: 15px;
+    background: linear-gradient(180deg, rgba(180,179,179,1) 0%, rgba(91,91,94,1) 98%, rgba(91,91,94,1) 100%);
   }
   
   .productimage {
