@@ -15,25 +15,22 @@ import Products from "./components/Products/Products";
 import CommentModal from "./components/CommentModal/CommentModal";
 import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 import CommentsForProduct from "./components/CommentsForProduct/CommentsForProducts";
-import fondoImagen from "./assets/fondos/fondo2.png"
-//import LandingPage from './components/LandingPage/LandingPage';
+import fondoImagen from "./assets/fondos/fondo2.png";
 
 function App() {
   const { isAuthenticated } = useAuth0();
   const location = useLocation();
 
   if (isAuthenticated) {
-    // Redireccionar a "/home"
     if (location.pathname === "/" || location.pathname === "/*") {
       return <Navigate to="/home" />;
     }
   }
 
   return (
-    <div className="App" style={{backgroundImage: `url(${fondoImagen})`}}>
+    <div className="App" style={{ backgroundImage: `url(${fondoImagen})` }}>
       <NavBar />
       <Routes>
-        {/* <Route exact path='/' element= {<LandingPage/> } /> */}
         <Route path="/*" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
