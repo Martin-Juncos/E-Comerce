@@ -15,6 +15,8 @@ import { Link } from "react-router-dom";
 function NavBar() {
   const { isAuthenticated, user } = useAuth0();
   console.log(user, isAuthenticated)
+
+  
  
 
   const isAdmin = isAuthenticated && user === 'admin';

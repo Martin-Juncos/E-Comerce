@@ -44,7 +44,7 @@
 
 /* Media Queries */
 
-/* Pantallas más pequeñas como tablets y móviles */
+
 @media (max-width: 768px) {
   .formGroup {
     display: block;
