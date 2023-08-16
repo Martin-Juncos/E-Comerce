@@ -1,10 +1,9 @@
-
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProductById } from '../../Redux/actions';
-import styles from './UpdateProduct.module.css';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductById } from "../../Redux/actions";
+import styles from "./UpdateProduct.module.css";
+import axios from "axios";
 
 function UpdateProduct() {
   const { id } = useParams();
@@ -17,15 +16,15 @@ function UpdateProduct() {
   }, [dispatch, id]);
 
   const [producto, setProducto] = useState({
-    title: '',
-    description: '',
-    price: '',
-    discountPercentage: '',
-    rating: '',
-    stock: '',
-    brand: '',
-    category: '',
-    thumbnail: '',
+    title: "",
+    description: "",
+    price: "",
+    discountPercentage: "",
+    rating: "",
+    stock: "",
+    brand: "",
+    category: "",
+    thumbnail: "",
     images: [],
   });
 
