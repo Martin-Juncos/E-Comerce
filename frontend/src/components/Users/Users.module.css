@@ -8,11 +8,6 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   
-  .formGroup {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  
   .label {
     font-weight: bold;
     font-size: 18px;
@@ -21,7 +16,5 @@
   
   .input {
     width: 50%;
-    padding: 13px;
-    border: 2px solid #ddd;
     border-radius: 25px;
     font-size: 16px;  }
