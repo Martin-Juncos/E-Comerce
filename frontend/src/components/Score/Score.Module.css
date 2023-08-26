@@ -3,11 +3,11 @@
   }
   
   .scorecontainer span {
-    color: #fca311; /*  estrellas llenas */
+    color: #fca311; 
     font-size: 20px;
   }
   
   .scorecontainer svg {
-    color: #ccc; /*  estrellas vacías */
+    color: #ccc; 
     font-size: 20px;
   }
