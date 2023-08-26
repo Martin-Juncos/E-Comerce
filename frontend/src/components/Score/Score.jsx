@@ -26,6 +26,7 @@ function Score(props) {
     <div className={styles.scorecontainer}>
       {stars.map((star, index) => (
         <span key={index}>{star}</span>
+        
       ))}
     </div>
   );
